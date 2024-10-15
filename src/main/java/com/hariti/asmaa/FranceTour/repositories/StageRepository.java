@@ -1,6 +1,6 @@
-package com.hariti.asmaa.FranceTour.Repositories;
+package com.hariti.asmaa.FranceTour.repositories;
 
-import com.hariti.asmaa.FranceTour.Entities.Stage;
+import com.hariti.asmaa.FranceTour.entities.Stage;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StageRepository extends JpaRepository<Stage, Long> {

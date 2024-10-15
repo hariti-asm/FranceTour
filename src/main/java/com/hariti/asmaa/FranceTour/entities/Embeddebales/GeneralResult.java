@@ -1,12 +1,11 @@
-package com.hariti.asmaa.FranceTour.Entities.Embeddebales;
+package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 
-import com.hariti.asmaa.FranceTour.Entities.Competition;
-import com.hariti.asmaa.FranceTour.Entities.Cyclist;
+import com.hariti.asmaa.FranceTour.entities.Competition;
+import com.hariti.asmaa.FranceTour.entities.Cyclist;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.JoinColumn;
 import javax.persistence.*;
-import javax.persistence.MapsId;
 import java.time.Duration;
 
 @Entity

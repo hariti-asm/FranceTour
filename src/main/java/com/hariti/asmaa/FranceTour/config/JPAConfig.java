@@ -1,7 +1,8 @@
-package com.hariti.asmaa.FranceTour.Config;
+package com.hariti.asmaa.FranceTour.config;
 
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -16,8 +17,10 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.hariti.asmaa.FranceTour.Repositories")
+@EnableJpaRepositories(basePackages = "com.hariti.asmaa.FranceTour.repositories")
 @EnableTransactionManagement
+@ComponentScan(basePackages = "com.hariti.asmaa.FranceTour")
+
 public class JPAConfig<C, L extends Number> {
 
     @Bean

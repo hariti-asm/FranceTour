@@ -1,7 +1,7 @@
-package com.hariti.asmaa.FranceTour.Entities.Embeddebales;
+package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 
-import com.hariti.asmaa.FranceTour.Entities.Cyclist;
-import com.hariti.asmaa.FranceTour.Entities.Stage;
+import com.hariti.asmaa.FranceTour.entities.Cyclist;
+import com.hariti.asmaa.FranceTour.entities.Stage;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.*;

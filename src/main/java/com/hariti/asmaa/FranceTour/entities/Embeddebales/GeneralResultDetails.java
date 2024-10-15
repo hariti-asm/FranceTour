@@ -1,4 +1,4 @@
-package com.hariti.asmaa.FranceTour.Entities.Embeddebales;
+package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 
 import javax.persistence.Embeddable;
 import java.time.LocalTime;

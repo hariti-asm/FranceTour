@@ -1,22 +1,52 @@
 package com.hariti.asmaa.FranceTour;
 
-import com.hariti.asmaa.FranceTour.Config.JPAConfig;
-import com.hariti.asmaa.FranceTour.Entities.Competition;
-import com.hariti.asmaa.FranceTour.Services.CompetitionService;
+import com.hariti.asmaa.FranceTour.config.JPAConfig;
+import com.hariti.asmaa.FranceTour.entities.Competition;
+import com.hariti.asmaa.FranceTour.entities.Cyclist;
+import com.hariti.asmaa.FranceTour.services.CompetitionService;
+import com.hariti.asmaa.FranceTour.services.CyclistService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.List;
+import java.time.LocalDate;
+import java.util.Optional;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(JPAConfig.class);
+
         CompetitionService competitionService = context.getBean(CompetitionService.class);
-        List<Competition> competitions = competitionService.findAllCompetitions();
-        competitions.forEach(System.out::println);
-    }
+        CyclistService cyclistService = context.getBean(CyclistService.class);
+
+        Competition newCompetition = new Competition();
+        newCompetition.setName("Tour de France");
+        newCompetition.setLocation("France");
+        newCompetition.setStartDate(LocalDate.of(2024, 7, 1)); // Example start date
+        newCompetition.setEndDate(LocalDate.of(2024, 7, 21));
+
+        competitionService.saveCompetition(newCompetition);
+        System.out.println("Competition saved: " + newCompetition.getName());
+        System.out.println("All Competitions:");
+        competitionService.findAllCompetitions().forEach(competition -> {
+            System.out.println(" - " + competition.getName());
+        });
+
+        System.out.println("Showing competition by id");
+        Optional<Competition> competition = competitionService.findCompetitionById(1);
+        if (competition.isPresent()) {
+            System.out.println("Found Competition: " + competition.get().getName());
+        } else {
+            System.out.println("Competition not found.");
+        }
 
 
-}
+    //Add Cyclist
+    Cyclist newCyclist = new Cyclist();
+        newCyclist.setFirstName("John Doe");
+        newCyclist.setLastName("Doe");
+        newCyclist.setNationality("USA");
+        newCyclist.setTeam("TEAM A");
+        newCyclist.setAge(20);
+        cyclistService.save(newCyclist);
+
+}}

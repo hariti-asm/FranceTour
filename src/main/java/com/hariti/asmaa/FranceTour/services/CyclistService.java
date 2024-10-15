@@ -1,7 +1,7 @@
-package com.hariti.asmaa.FranceTour.Services;
+package com.hariti.asmaa.FranceTour.services;
 
-import com.hariti.asmaa.FranceTour.Entities.Cyclist;
-import com.hariti.asmaa.FranceTour.Repositories.CyclistRepository;
+import com.hariti.asmaa.FranceTour.entities.Cyclist;
+import com.hariti.asmaa.FranceTour.repositories.CyclistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
