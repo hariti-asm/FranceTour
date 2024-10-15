@@ -1,40 +1,32 @@
 package com.hariti.asmaa.FranceTour.Entities;
 
+import com.hariti.asmaa.FranceTour.Entities.Embeddebales.GeneralResult;
+import com.hariti.asmaa.FranceTour.Entities.Embeddebales.StageResult;
+
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "cyclists")
 public class Cyclist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
     private String firstName;
-
-    @Column(name = "last_name", nullable = false)
     private String lastName;
-
-    @Column(nullable = false)
+    private LocalDate dateOfBirth;
     private String nationality;
-
-    @Column(nullable = false)
-    private int age;
-
-    @Column(nullable = false)
     private String team;
 
-    @ManyToMany(mappedBy = "cyclists")
-    private List<Competition> competitions = new ArrayList<>();
+    @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<StageResult> stageResults = new HashSet<>();
 
-    @ManyToMany(mappedBy = "cyclists")
-    private List<Phase> phases = new ArrayList<>();
+    @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<GeneralResult> generalResults = new HashSet<>();
 
-    // Constructors...
 
-    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -59,20 +51,20 @@ public class Cyclist {
         this.lastName = lastName;
     }
 
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public String getNationality() {
         return nationality;
     }
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getTeam() {
@@ -83,52 +75,19 @@ public class Cyclist {
         this.team = team;
     }
 
-    public List<Competition> getCompetitions() {
-        return competitions;
+    public Set<StageResult> getStageResults() {
+        return stageResults;
     }
 
-    public void setCompetitions(List<Competition> competitions) {
-        this.competitions = competitions;
+    public void setStageResults(Set<StageResult> stageResults) {
+        this.stageResults = stageResults;
     }
 
-    public List<Phase> getPhases() {
-        return phases;
+    public Set<GeneralResult> getGeneralResults() {
+        return generalResults;
     }
 
-    public void setPhases(List<Phase> phases) {
-        this.phases = phases;
-    }
-
-    public void addCompetition(Competition competition) {
-        competitions.add(competition);
-        competition.getCyclists().add(this);
-    }
-
-    public void removeCompetition(Competition competition) {
-        competitions.remove(competition);
-        competition.getCyclists().remove(this);
-    }
-
-    public void addPhase(Phase phase) {
-        phases.add(phase);
-        phase.getCyclists().add(this);
-    }
-
-    public void removePhase(Phase phase) {
-        phases.remove(phase);
-        phase.getCyclists().remove(this);
-    }
-
-
-    @Override
-    public String toString() {
-        return "Cyclist{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", nationality='" + nationality + '\'' +
-                ", age=" + age +
-                ", team='" + team + '\'' +
-                '}';
+    public void setGeneralResults(Set<GeneralResult> generalResults) {
+        this.generalResults = generalResults;
     }
 }
