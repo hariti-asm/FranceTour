@@ -3,8 +3,8 @@ package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
 import com.hariti.asmaa.FranceTour.entities.Stage;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.*;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.*;
 
 @Entity
 public class StageResult {

@@ -1,11 +1,12 @@
 package com.hariti.asmaa.FranceTour.entities;
 
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.StageResult;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.*;
 

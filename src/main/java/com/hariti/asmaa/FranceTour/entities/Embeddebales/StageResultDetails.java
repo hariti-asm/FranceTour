@@ -1,6 +1,6 @@
 package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 import java.time.Duration;
 import java.time.LocalTime;
 

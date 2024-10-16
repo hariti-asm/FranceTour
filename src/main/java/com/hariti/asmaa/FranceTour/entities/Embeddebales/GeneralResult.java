@@ -2,26 +2,26 @@ package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
-
-import javax.persistence.EmbeddedId;
-import javax.persistence.JoinColumn;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.Duration;
 
 @Entity
 public class GeneralResult {
     @EmbeddedId
     private GeneralResultId id;
+
     @ManyToOne
-    @JoinColumn(name = "cyclist_id")
+    @JoinColumn(name = "cyclist_id", insertable = false, updatable = false)
     private Cyclist cyclist;
 
     @ManyToOne
-    @JoinColumn(name = "competition_id")
+    @JoinColumn(name = "competition_id", insertable = false, updatable = false)
     private Competition competition;
 
     private Duration generalTime;
     private Integer generalRank;
+
+    // Getters and setters
 
     public GeneralResultId getId() {
         return id;
