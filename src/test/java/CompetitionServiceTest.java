@@ -10,11 +10,9 @@ import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class CompetitionServiceTest {
 
@@ -28,7 +26,7 @@ public class CompetitionServiceTest {
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this); // Correct method to initialize mocks
+        MockitoAnnotations.openMocks(this);
         competition = new Competition();
         competition.setName("test Competition");
         competition.setStartDate(LocalDate.of(2009, 9, 9));
@@ -37,9 +35,9 @@ public class CompetitionServiceTest {
     }
 
     @Test
-    public void testSaveCompetition() {
+    public void testSaveCompetitionSuccess() {
         // ARRANGE
-        when(competitionRepository.save(any(Competition.class))).thenReturn(competition); // Return mock result
+        when(competitionRepository.save(any(Competition.class))).thenReturn(competition);
 
         // ACT
         Competition savedCompetition = competitionService.saveCompetition(competition);
@@ -52,5 +50,31 @@ public class CompetitionServiceTest {
         assertEquals("Morocco", savedCompetition.getLocation());
 
         verify(competitionRepository).save(any(Competition.class));
+    }
+    @Test
+    public void testSaveCompetitionNullCompetition() {
+        //arrange
+        when(competitionRepository.save(any(Competition.class))).thenReturn(null);
+        //act
+        Competition savedCompetition = competitionService.saveCompetition(competition);
+        //assert
+       assertNull(savedCompetition);
+       //verify
+        verify(competitionRepository , never()).save(any(Competition.class));
+
+    }
+    @Test
+    public void testSaveCompetitonInvalidDate(){
+        when(competitionRepository.save(any(Competition.class))).thenReturn(competition);
+        competition.setStartDate(LocalDate.of(2009, 9, 9));
+        competition.setEndDate(LocalDate.of(2009, 9, 9));
+        //act
+        Competition savedCompetition = competitionService.saveCompetition(competition);
+        //assert
+        assertNotNull(savedCompetition);
+        //verify
+        verify(competitionRepository , never()).save(any(Competition.class));
+
+
     }
 }

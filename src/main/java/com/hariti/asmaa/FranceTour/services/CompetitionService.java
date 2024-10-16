@@ -21,33 +21,25 @@ public class CompetitionService {
     }
 
     public Optional<Competition> findCompetitionById(long id) {
-        return competitionRepository.findById(id);
+        return null;
     }
 
     public List<Competition> findAllCompetitions() {
-        return competitionRepository.findAll();
+        return null;
     }
 
     public Page<Competition> findAllCompetitions(Pageable pageable) {
-        return competitionRepository.findAll(pageable);
+        return null;
     }
 
     public Competition saveCompetition(Competition competition) {
-        return competitionRepository.save(competition);
+        return null;
     }
 
     public Competition updateCompetition(Competition competition) {
-        if(competition ==null) { throw new NullPointerException("Competition is null"); }
-        if(!competitionRepository.existsById(competition.getId())) {
-            throw new NullPointerException("Competition not found");
-        }
-        return competitionRepository.save(competition);
+        return null;
     }
 
     public void deleteCompetition(long id) {
-        if(!competitionRepository.existsById(id)) {
-            throw new NullPointerException("Competition not found");
-        }
-        competitionRepository.deleteById(id);
     }
 }
