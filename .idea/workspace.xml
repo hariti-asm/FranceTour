@@ -93,52 +93,52 @@
       <command value="mvn clean install " />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TeamServiceTest.testSave">
-    <configuration name="CompetitionServiceTest.deleteCompetitionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
-      <option name="METHOD_NAME" value="deleteCompetitionTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CompetitionServiceTest.findCompetitionByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
-      <option name="METHOD_NAME" value="findCompetitionByIdTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CompetitionServiceTest.updateCompetitionNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
-      <option name="METHOD_NAME" value="updateCompetitionNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CompetitionServiceTest.updateCompetitionSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
-      <option name="METHOD_NAME" value="updateCompetitionSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TeamServiceTest.testSave" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TeamServiceTest.testUpdate">
+    <configuration name="TeamServiceTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FranceTour" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
-      <option name="METHOD_NAME" value="testSave" />
+      <option name="METHOD_NAME" value="testDelete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeamServiceTest.testDeleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
+      <option name="METHOD_NAME" value="testDeleteById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeamServiceTest.testFindByIdNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
+      <option name="METHOD_NAME" value="testFindByIdNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeamServiceTest.testFindByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
+      <option name="METHOD_NAME" value="testFindByName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeamServiceTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
+      <option name="METHOD_NAME" value="testUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TeamServiceTest.testSave" />
-        <item itemvalue="JUnit.CompetitionServiceTest.updateCompetitionNotFound" />
-        <item itemvalue="JUnit.CompetitionServiceTest.updateCompetitionSuccess" />
-        <item itemvalue="JUnit.CompetitionServiceTest.findCompetitionByIdTest" />
-        <item itemvalue="JUnit.CompetitionServiceTest.deleteCompetitionTest" />
+        <item itemvalue="JUnit.TeamServiceTest.testUpdate" />
+        <item itemvalue="JUnit.TeamServiceTest.testDeleteById" />
+        <item itemvalue="JUnit.TeamServiceTest.testFindByIdNotFound" />
+        <item itemvalue="JUnit.TeamServiceTest.testDelete" />
+        <item itemvalue="JUnit.TeamServiceTest.testFindByName" />
       </list>
     </recent_temporary>
   </component>
