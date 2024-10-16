@@ -1,7 +1,6 @@
 package com.hariti.asmaa.FranceTour.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -11,14 +10,12 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import jakarta.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
+import javax.persistence.EntityManagerFactory;
 import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.hariti.asmaa.FranceTour.repositories")
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.hariti.asmaa.FranceTour")
 public class JPAConfig {
 
     @Bean
@@ -26,28 +23,25 @@ public class JPAConfig {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan("com.hariti.asmaa.FranceTour.Entities");
-
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(additionalProperties());
-
         return em;
     }
 
     @Bean
-    public DataSource dataSource() {
+    public DriverManagerDataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/francetour");
-        dataSource.setUsername("asmaa");
-        dataSource.setPassword("");
+        dataSource.setUsername("asmaa"); // Ensure the username is correct
+        dataSource.setPassword(""); // Provide the password if necessary
         return dataSource;
     }
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory((jakarta.persistence.EntityManagerFactory) emf);
+        transactionManager.setEntityManagerFactory(emf);
         return transactionManager;
     }
 

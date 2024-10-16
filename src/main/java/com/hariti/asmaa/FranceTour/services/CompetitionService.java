@@ -27,7 +27,8 @@ public class CompetitionService {
 
     }
     public  Optional<Competition> findCompetitionById(long id) {
-        return null;
+        return competitionRepository.findById(id);
+
     }
 
     public List<Competition> findAllCompetitions() {
@@ -57,6 +58,7 @@ public class CompetitionService {
         return null;
     }
 
-    public void deleteCompetition(long id) {
+    public void deleteCompetition(Long competitionId) {
+        competitionRepository.deleteById(competitionId);
     }
 }

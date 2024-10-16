@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fcfbfb30-1c20-4689-a431-fec8b25b5a30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CompetitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CompetitionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java" afterDir="false" />
     </list>
@@ -25,9 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2nQgVXGOZqhTXK83NR64rjagGeG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,8 +40,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.CompetitionServiceTest.deleteCompetitionTest.executor": "Run",
+    "JUnit.CompetitionServiceTest.executor": "Run",
+    "JUnit.CompetitionServiceTest.testSaveCompetitionSuccess.executor": "Run",
+    "JUnit.CompetitionServiceTest.testSaveCompetition_NullCompetition.executor": "Debug",
+    "Maven.FranceTour [clean,install].executor": "Run",
+    "Maven.FranceTour [clean].executor": "Run",
+    "Maven.FranceTour [dependency:resolve].executor": "Run",
+    "Maven.FranceTour [dependency:tree].executor": "Run",
     "Maven.FranceTour [insta].executor": "Run",
     "Maven.FranceTour [install].executor": "Run",
+    "Maven.FranceTour [test...].executor": "Run",
     "Maven.FranceTour [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -64,8 +76,65 @@
     <option name="myCommands">
       <command value="mvn insta" />
       <command value="mvn install" />
+      <command value="mvn test -Dtest=CompetitionServiceTest -Dsurefire.printSummary=true" />
+      <command value="mvn test -Dtest=CompetitionServiceTest" />
+      <command value="mvn dependency:resolve" />
+      <command value="mvn clean install" />
+      <command value="mvn clean install " />
+      <command value="mvn dependency:tree " />
+      <command value="mvn test " />
+      <command value="mvn clean" />
       <command value="mvn test" />
     </option>
+  </component>
+  <component name="RunManager" selected="JUnit.CompetitionServiceTest.findCompetitionByIdTest">
+    <configuration name="CompetitionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompetitionServiceTest.deleteCompetitionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
+      <option name="METHOD_NAME" value="deleteCompetitionTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompetitionServiceTest.findCompetitionByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
+      <option name="METHOD_NAME" value="findCompetitionByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompetitionServiceTest.testSaveCompetitionSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
+      <option name="METHOD_NAME" value="testSaveCompetitionSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CompetitionServiceTest.findCompetitionByIdTest" />
+        <item itemvalue="JUnit.CompetitionServiceTest.deleteCompetitionTest" />
+        <item itemvalue="JUnit.CompetitionServiceTest" />
+        <item itemvalue="JUnit.CompetitionServiceTest.testSaveCompetitionSuccess" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -83,22 +152,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728910740049</updated>
-      <workItem from="1728910741317" duration="32081000" />
+      <workItem from="1728910741317" duration="34661000" />
+      <workItem from="1729073852986" duration="6869000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FranceTour$CompetitionServiceTest_deleteCompetitionTest.ic" NAME="CompetitionServiceTest.deleteCompetitionTest Coverage Results" MODIFIED="1729083200039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

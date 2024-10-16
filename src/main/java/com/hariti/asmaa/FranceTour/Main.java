@@ -21,7 +21,7 @@ public class Main {
         Competition newCompetition = new Competition();
         newCompetition.setName("Tour de France");
         newCompetition.setLocation("France");
-        newCompetition.setStartDate(LocalDate.of(2024, 7, 1)); // Example start date
+        newCompetition.setStartDate(LocalDate.of(2024, 7, 1));
         newCompetition.setEndDate(LocalDate.of(2024, 7, 21));
 
         competitionService.saveCompetition(newCompetition);
