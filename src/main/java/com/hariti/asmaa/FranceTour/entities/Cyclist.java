@@ -23,15 +23,14 @@ public class Cyclist {
     private String lastName;
     private Integer age;
     private String nationality;
-    private String team;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    private Team team;
 
     @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<StageResult> stageResults = new HashSet<>();
 
     @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<GeneralResult> generalResults = new HashSet<>();
-
-
-
-
 }
