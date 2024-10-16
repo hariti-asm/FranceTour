@@ -40,13 +40,4 @@ public class Main {
         }
 
 
-    //Add Cyclist
-    Cyclist newCyclist = new Cyclist();
-        newCyclist.setFirstName("John Doe");
-        newCyclist.setLastName("Doe");
-        newCyclist.setNationality("USA");
-        newCyclist.setTeam("TEAM A");
-        newCyclist.setAge(20);
-        cyclistService.save(newCyclist);
-
-}}
+    }}

@@ -18,7 +18,9 @@ public class Competition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private LocalDate startDate;
     private LocalDate endDate;
     private String location;
@@ -40,7 +42,6 @@ public class Competition {
         this.location = location;
     }
 
-    // You might want to add methods to manage the relationships
     public void addStage(Stage stage) {
         stages.add(stage);
         stage.setCompetition(this);

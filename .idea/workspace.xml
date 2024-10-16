@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfbfb30-1c20-4689-a431-fec8b25b5a30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/TeamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TeamServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Competition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Competition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +49,7 @@
     "JUnit.CompetitionServiceTest.testSaveCompetition_NullCompetition.executor": "Debug",
     "JUnit.CompetitionServiceTest.updateCompetitionNotFound.executor": "Run",
     "JUnit.CompetitionServiceTest.updateCompetitionSuccess.executor": "Run",
+    "JUnit.TeamServiceTest.testSave.executor": "Run",
     "Maven.FranceTour [clean,install].executor": "Run",
     "Maven.FranceTour [clean].executor": "Run",
     "Maven.FranceTour [dependency:resolve].executor": "Run",
@@ -79,23 +86,14 @@
       <command value="mvn test -Dtest=CompetitionServiceTest" />
       <command value="mvn dependency:resolve" />
       <command value="mvn clean install" />
-      <command value="mvn clean install " />
       <command value="mvn dependency:tree " />
       <command value="mvn test " />
       <command value="mvn clean" />
       <command value="mvn test" />
+      <command value="mvn clean install " />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CompetitionServiceTest.updateCompetitionNotFound">
-    <configuration name="CompetitionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CompetitionServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TeamServiceTest.testSave">
     <configuration name="CompetitionServiceTest.deleteCompetitionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FranceTour" />
       <option name="PACKAGE_NAME" value="" />
@@ -136,13 +134,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TeamServiceTest.testSave" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FranceTour" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
+      <option name="METHOD_NAME" value="testSave" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TeamServiceTest.testSave" />
         <item itemvalue="JUnit.CompetitionServiceTest.updateCompetitionNotFound" />
         <item itemvalue="JUnit.CompetitionServiceTest.updateCompetitionSuccess" />
         <item itemvalue="JUnit.CompetitionServiceTest.findCompetitionByIdTest" />
         <item itemvalue="JUnit.CompetitionServiceTest.deleteCompetitionTest" />
-        <item itemvalue="JUnit.CompetitionServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +171,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728910740049</updated>
       <workItem from="1728910741317" duration="34661000" />
-      <workItem from="1729073852986" duration="10060000" />
+      <workItem from="1729073852986" duration="18182000" />
     </task>
     <servers />
   </component>

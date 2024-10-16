@@ -9,7 +9,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import javax.persistence.EntityManagerFactory;
 import java.util.Properties;
 
@@ -22,7 +21,7 @@ public class JPAConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.hariti.asmaa.FranceTour.Entities");
+        em.setPackagesToScan("com.hariti.asmaa.FranceTour.entities");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(additionalProperties());
         return em;
@@ -33,8 +32,8 @@ public class JPAConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/francetour");
-        dataSource.setUsername("asmaa"); // Ensure the username is correct
-        dataSource.setPassword(""); // Provide the password if necessary
+        dataSource.setUsername("asmaa");
+        dataSource.setPassword("");
         return dataSource;
     }
 
