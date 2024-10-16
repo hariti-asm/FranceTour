@@ -20,7 +20,10 @@ public class CompetitionService {
         this.competitionRepository = competitionRepository;
     }
 
-    public Optional<Competition> findCompetitionById(long id) {
+    public Optional<Competition> findCompetitionByName(String name) {
+        return null;
+    }
+    public  Optional<Competition> findCompetitionById(long id) {
         return null;
     }
 
@@ -33,7 +36,18 @@ public class CompetitionService {
     }
 
     public Competition saveCompetition(Competition competition) {
-        return null;
+        if(competition==null){
+            throw new IllegalArgumentException("Competition can't be created");
+        }
+        if(competition.getStartDate().isAfter(competition.getEndDate())){
+            throw new IllegalArgumentException("Competition start date can't be after end date");
+        }
+        Optional<Competition> comptition = competitionRepository.findCompetitionByName(competition.getName());
+        if(comptition.isPresent()){
+            throw new IllegalArgumentException("Competition already exists");
+        }
+
+        return competitionRepository.save(competition);
     }
 
     public Competition updateCompetition(Competition competition) {
