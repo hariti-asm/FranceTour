@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -36,13 +37,10 @@ public class CompetitionServiceTest {
 
     @Test
     public void testSaveCompetitionSuccess() {
-        // ARRANGE
         when(competitionRepository.save(any(Competition.class))).thenReturn(competition);
 
-        // ACT
         Competition savedCompetition = competitionService.saveCompetition(competition);
 
-        // ASSERT
         assertNotNull(savedCompetition);
         assertEquals("test Competition", savedCompetition.getName());
         assertEquals(LocalDate.of(2009, 9, 9), savedCompetition.getStartDate());
@@ -51,30 +49,57 @@ public class CompetitionServiceTest {
 
         verify(competitionRepository).save(any(Competition.class));
     }
+
     @Test
     public void testSaveCompetitionNullCompetition() {
-        //arrange
         when(competitionRepository.save(any(Competition.class))).thenReturn(null);
-        //act
-        Competition savedCompetition = competitionService.saveCompetition(competition);
-        //assert
-       assertNull(savedCompetition);
-       //verify
-        verify(competitionRepository , never()).save(any(Competition.class));
 
+        Competition savedCompetition = competitionService.saveCompetition(null);
+
+        assertNull(savedCompetition);
+        verify(competitionRepository, never()).save(any(Competition.class));
     }
+
     @Test
-    public void testSaveCompetitonInvalidDate(){
-        when(competitionRepository.save(any(Competition.class))).thenReturn(competition);
+    public void testSaveCompetitonInvalidDate() {
         competition.setStartDate(LocalDate.of(2009, 9, 9));
         competition.setEndDate(LocalDate.of(2009, 9, 9));
-        //act
-        Competition savedCompetition = competitionService.saveCompetition(competition);
-        //assert
-        assertNotNull(savedCompetition);
-        //verify
-        verify(competitionRepository , never()).save(any(Competition.class));
 
+        assertThrows(IllegalArgumentException.class, () -> competitionService.saveCompetition(competition));
 
+        verify(competitionRepository, never()).save(any(Competition.class));
     }
+    @Test
+    public void testFindCompetitionByName() {
+        when(competitionRepository.findCompetitionByName(competition.getName())).thenReturn(Optional.of(competition));
+        Optional <Competition> competitionOptional = competitionService.findCompetitionByName(competition.getName());
+        assertTrue(competitionOptional.isPresent());
+        assertEquals(competition, competitionOptional.get());
+        verify(competitionRepository, times(1)).findCompetitionByName(competition.getName());
+    }
+    @Test
+    public void testFindCompetitionByNameWithSensitiveCase(){
+        // Arrange
+        String lowerCaseName = competition.getName().toLowerCase();
+        when(competitionRepository.findCompetitionByName(lowerCaseName))
+                .thenReturn(Optional.of(competition));
+        Optional<Competition> competitionOptional = competitionService.findCompetitionByName(lowerCaseName);
+        assertTrue(competitionOptional.isPresent());
+        assertEquals(competition, competitionOptional.get());
+        verify(competitionRepository, times(1)).findCompetitionByName(lowerCaseName);
+    }
+    @Test
+    public void testFindCompetitionByInvalidName() {
+        // Arrange
+        when(competitionRepository.findCompetitionByName(anyString())).thenReturn(Optional.empty());
+
+        // Act
+        Optional<Competition> competitionOptional = competitionRepository.findCompetitionByName(anyString());
+
+        // Assert
+        assertFalse(competitionOptional.isPresent());
+
+        verify(competitionRepository, times(1)).findCompetitionByName(anyString());
+    }
+
 }
