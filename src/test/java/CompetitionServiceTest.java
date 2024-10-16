@@ -1,6 +1,7 @@
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.repositories.CompetitionRepository;
 import com.hariti.asmaa.FranceTour.services.CompetitionService;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -147,4 +148,41 @@ public class CompetitionServiceTest {
         verify(competitionRepository, times(1)).findById(competitionId);
 
     }
+    @Test
+    public void updateCompetitionSuccess() {
+        Long competitionId = 1L;
+        Competition existingCompetition = new Competition(competitionId, "Old Name", LocalDate.now(), LocalDate.now().plusDays(2), "Old Location");
+        Competition newCompetition = new Competition(competitionId, "New Name", LocalDate.now(), LocalDate.now().plusDays(10), "New Location");
+
+        when(competitionRepository.findById(competitionId)).thenReturn(Optional.of(existingCompetition));
+        when(competitionRepository.save(any(Competition.class))).thenReturn(newCompetition);
+
+        Competition updatedCompetition = competitionService.updateCompetition(newCompetition);
+
+        assertNotNull(updatedCompetition);
+        assertEquals("New Name", updatedCompetition.getName());
+        assertEquals(LocalDate.now(), updatedCompetition.getStartDate());
+        assertEquals(LocalDate.now().plusDays(10), updatedCompetition.getEndDate());
+        assertEquals("New Location", updatedCompetition.getLocation());
+
+        verify(competitionRepository, times(1)).findById(competitionId);
+        verify(competitionRepository, times(1)).save(any(Competition.class));
+    }
+    @Test
+    public void updateCompetitionNotFound() {
+        Long competitionId = 1L;
+        Competition newCompetition = new Competition(competitionId, "New Name", LocalDate.now(), LocalDate.now().plusDays(10), "New Location");
+
+        when(competitionRepository.findById(competitionId)).thenReturn(Optional.empty());
+
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            competitionService.updateCompetition(newCompetition);
+        });
+
+        assertEquals("Competition not found with id: " + competitionId, exception.getMessage());
+
+        verify(competitionRepository, times(1)).findById(competitionId);
+        verify(competitionRepository, never()).save(any(Competition.class));
+    }
+
 }

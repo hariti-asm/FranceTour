@@ -18,7 +18,6 @@ public class Competition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -33,8 +32,9 @@ public class Competition {
     // Constructors
     public Competition() {}
 
-    public Competition(String name, LocalDate startDate, LocalDate endDate, String location) {
+    public Competition( Long id ,String name, LocalDate startDate, LocalDate endDate, String location) {
         this.name = name;
+        this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.location = location;

@@ -55,9 +55,16 @@ public class CompetitionService {
     }
 
     public Competition updateCompetition(Competition competition) {
-        return null;
+        return competitionRepository.findById(competition.getId())
+                .map(existingCompetition -> {
+                    existingCompetition.setName(competition.getName());
+                    existingCompetition.setStartDate(competition.getStartDate());
+                    existingCompetition.setEndDate(competition.getEndDate());
+                    existingCompetition.setLocation(competition.getLocation());
+                    return competitionRepository.save(existingCompetition);
+                })
+                .orElseThrow(() -> new RuntimeException("Competition not found with id: " + competition.getId()));
     }
-
     public void deleteCompetition(Long competitionId) {
         competitionRepository.deleteById(competitionId);
     }
