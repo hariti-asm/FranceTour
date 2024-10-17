@@ -37,4 +37,11 @@ public class CyclistService {
     public void deleteCyclist(Cyclist cyclist) {
         cyclistRepository.delete(cyclist);
     }
+    public List<Cyclist> getCyclistsInCompetition(Long competitionId) {
+        if (competitionId == null) {
+            throw new IllegalArgumentException("Competition ID cannot be null");
+        }
+        return cyclistRepository.findByGeneralResults_CompetitionId(competitionId);
+    }
+
 }

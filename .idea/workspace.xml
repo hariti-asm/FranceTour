@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfbfb30-1c20-4689-a431-fec8b25b5a30" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/GeneralResultRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/RegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Cyclist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Cyclist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CyclistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CyclistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CyclistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CyclistService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -186,7 +192,7 @@
       <updated>1728910740049</updated>
       <workItem from="1728910741317" duration="34661000" />
       <workItem from="1729073852986" duration="21505000" />
-      <workItem from="1729154992046" duration="9547000" />
+      <workItem from="1729154992046" duration="11779000" />
     </task>
     <servers />
   </component>
@@ -214,6 +220,10 @@
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.beans.factory.NoSuchBeanDefinitionException" package="org.springframework.beans.factory" />
+          <option name="timeStamp" value="8" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

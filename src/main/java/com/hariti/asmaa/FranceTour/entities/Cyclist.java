@@ -16,7 +16,7 @@ import java.util.Objects;
 @Table(name = "cyclists")
 public class Cyclist {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate the ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -24,14 +24,14 @@ public class Cyclist {
     private Integer age;
     private String nationality;
 
-    @ManyToOne(fetch = FetchType.LAZY) // Marks the relationship to Team as Many-to-One
-    @JoinColumn(name = "team_id") // Foreign key column for the team
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
     private Team team;
 
-    @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true) // One Cyclist to Many StageResults
+    @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<StageResult> stageResults = new HashSet<>();
 
-    @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true) // One Cyclist to Many GeneralResults
+    @OneToMany(mappedBy = "cyclist", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<GeneralResult> generalResults = new HashSet<>();
 
     @Override
