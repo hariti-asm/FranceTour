@@ -2,6 +2,7 @@ package com.hariti.asmaa.FranceTour.services;
 
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.repositories.CompetitionRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,11 +23,11 @@ public class CompetitionService {
 
     public Optional<Competition> findCompetitionByName(String name) {
 
-      Optional <Competition> competition  = competitionRepository.findCompetitionByName(name.toLowerCase());
-      return competition;
+        return competitionRepository.findCompetitionByName(name.toLowerCase());
 
     }
-    public  Optional<Competition> findCompetitionById(long id) {
+
+    public Optional<Competition> findCompetitionById(long id) {
         return competitionRepository.findById(id);
 
     }
@@ -40,14 +41,14 @@ public class CompetitionService {
     }
 
     public Competition saveCompetition(Competition competition) {
-        if(competition==null){
+        if (competition == null) {
             throw new IllegalArgumentException("Competition can't be created");
         }
-        if(competition.getStartDate().isAfter(competition.getEndDate())){
+        if (competition.getStartDate().isAfter(competition.getEndDate())) {
             throw new IllegalArgumentException("Competition start date can't be after end date");
         }
         Optional<Competition> competition2 = competitionRepository.findCompetitionByName(competition.getName());
-        if(competition2.isPresent()){
+        if (competition2.isPresent()) {
             throw new IllegalArgumentException("Competition already exists");
         }
 
@@ -65,6 +66,7 @@ public class CompetitionService {
                 })
                 .orElseThrow(() -> new RuntimeException("Competition not found with id: " + competition.getId()));
     }
+
     public void deleteCompetition(Long competitionId) {
         competitionRepository.deleteById(competitionId);
     }

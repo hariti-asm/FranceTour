@@ -5,14 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfbfb30-1c20-4689-a431-fec8b25b5a30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/TeamRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TeamServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CyclistServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/StageServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/META-INF/applicationContext.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Competition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Competition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Cyclist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Cyclist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResultDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResultDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResultId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResultId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Stage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CompetitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CompetitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CyclistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CyclistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/StageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/StageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/TeamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CompetitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CompetitionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CyclistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CyclistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/StageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/StageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TeamServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TeamServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +68,24 @@
     "JUnit.CompetitionServiceTest.testSaveCompetition_NullCompetition.executor": "Debug",
     "JUnit.CompetitionServiceTest.updateCompetitionNotFound.executor": "Run",
     "JUnit.CompetitionServiceTest.updateCompetitionSuccess.executor": "Run",
+    "JUnit.CyclistServiceTest.testFindAllCyclists.executor": "Run",
+    "JUnit.CyclistServiceTest.testFindCyclistByIdNotFound.executor": "Run",
+    "JUnit.CyclistServiceTest.testUpdateCyclist.executor": "Run",
+    "JUnit.StageServiceTest.testGetAllStages.executor": "Run",
+    "JUnit.StageServiceTest.testGetStageById.executor": "Run",
+    "JUnit.StageServiceTest.testGetStageByIdNotFound.executor": "Run",
+    "JUnit.StageServiceTest.testSaveStage.executor": "Run",
+    "JUnit.StageServiceTest.testUpdateStage.executor": "Run",
+    "JUnit.TeamServiceTest.testDelete.executor": "Run",
+    "JUnit.TeamServiceTest.testDeleteById.executor": "Run",
+    "JUnit.TeamServiceTest.testFindByIdNotFound.executor": "Run",
+    "JUnit.TeamServiceTest.testFindByName.executor": "Run",
     "JUnit.TeamServiceTest.testSave.executor": "Run",
+    "JUnit.TeamServiceTest.testUpdate.executor": "Run",
+    "Maven.Competitions_Cyclistes [clean,install].executor": "Run",
+    "Maven.Competitions_Cyclistes [clean,package].executor": "Run",
     "Maven.FranceTour [clean,install].executor": "Run",
+    "Maven.FranceTour [clean,package].executor": "Run",
     "Maven.FranceTour [clean].executor": "Run",
     "Maven.FranceTour [dependency:resolve].executor": "Run",
     "Maven.FranceTour [dependency:tree].executor": "Run",
@@ -62,6 +97,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/asmaa/IdeaProjects/FranceTour/src/main/java/com/hariti/asmaa/FranceTour/services",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,8 +110,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour" />
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/META-INF" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -85,60 +123,61 @@
       <command value="mvn test -Dtest=CompetitionServiceTest -Dsurefire.printSummary=true" />
       <command value="mvn test -Dtest=CompetitionServiceTest" />
       <command value="mvn dependency:resolve" />
-      <command value="mvn clean install" />
       <command value="mvn dependency:tree " />
       <command value="mvn test " />
       <command value="mvn clean" />
       <command value="mvn test" />
+      <command value="mvn clean install" />
       <command value="mvn clean install " />
+      <command value="mvn clean package " />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TeamServiceTest.testUpdate">
-    <configuration name="TeamServiceTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="StageServiceTest.testGetAllStages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FranceTour" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
-      <option name="METHOD_NAME" value="testDelete" />
+      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
+      <option name="METHOD_NAME" value="testGetAllStages" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TeamServiceTest.testDeleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StageServiceTest.testGetStageById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FranceTour" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteById" />
+      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
+      <option name="METHOD_NAME" value="testGetStageById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TeamServiceTest.testFindByIdNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StageServiceTest.testGetStageByIdNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FranceTour" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
-      <option name="METHOD_NAME" value="testFindByIdNotFound" />
+      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
+      <option name="METHOD_NAME" value="testGetStageByIdNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TeamServiceTest.testFindByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StageServiceTest.testSaveStage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FranceTour" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
-      <option name="METHOD_NAME" value="testFindByName" />
+      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
+      <option name="METHOD_NAME" value="testSaveStage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TeamServiceTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StageServiceTest.testUpdateStage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FranceTour" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TeamServiceTest" />
-      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
+      <option name="METHOD_NAME" value="testUpdateStage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TeamServiceTest.testUpdate" />
-        <item itemvalue="JUnit.TeamServiceTest.testDeleteById" />
-        <item itemvalue="JUnit.TeamServiceTest.testFindByIdNotFound" />
-        <item itemvalue="JUnit.TeamServiceTest.testDelete" />
-        <item itemvalue="JUnit.TeamServiceTest.testFindByName" />
+        <item itemvalue="JUnit.StageServiceTest.testGetAllStages" />
+        <item itemvalue="JUnit.StageServiceTest.testSaveStage" />
+        <item itemvalue="JUnit.StageServiceTest.testGetStageById" />
+        <item itemvalue="JUnit.StageServiceTest.testGetStageByIdNotFound" />
+        <item itemvalue="JUnit.StageServiceTest.testUpdateStage" />
       </list>
     </recent_temporary>
   </component>
@@ -171,12 +210,37 @@
       <option name="presentableId" value="Default" />
       <updated>1728910740049</updated>
       <workItem from="1728910741317" duration="34661000" />
-      <workItem from="1729073852986" duration="18182000" />
+      <workItem from="1729073852986" duration="21505000" />
+      <workItem from="1729154992046" duration="7990000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/CyclistServiceTest.java</url>
+          <line>81</line>
+          <properties class="CyclistServiceTest" method="testUpdateCyclist">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java</url>
+          <line>133</line>
+          <properties class="CompetitionServiceTest" method="testUpdateCompetitionSuccess">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FranceTour$CompetitionServiceTest_deleteCompetitionTest.ic" NAME="CompetitionServiceTest.deleteCompetitionTest Coverage Results" MODIFIED="1729083200039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

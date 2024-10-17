@@ -12,24 +12,29 @@ import java.util.Optional;
 public class CyclistService {
     private final CyclistRepository cyclistRepository;
 
-@Autowired
+    @Autowired
     public CyclistService(CyclistRepository cyclistRepository) {
         this.cyclistRepository = cyclistRepository;
     }
+
     public Optional<Cyclist> findCyclistById(Long cyclistId) {
-     return  cyclistRepository.findById(cyclistId);
+        return cyclistRepository.findById(cyclistId);
 
     }
+
     public List<Cyclist> findAllCyclists() {
-    return cyclistRepository.findAll();
+        return cyclistRepository.findAll();
     }
+
     public Cyclist save(Cyclist cyclist) {
-    return  cyclistRepository.save(cyclist);
+        return cyclistRepository.save(cyclist);
     }
+
     public Cyclist updateCyclist(Cyclist cyclist) {
-    return cyclistRepository.save(cyclist);
+        return cyclistRepository.save(cyclist);
     }
+
     public void deleteCyclist(Cyclist cyclist) {
-    cyclistRepository.delete(cyclist);
+        cyclistRepository.delete(cyclist);
     }
 }

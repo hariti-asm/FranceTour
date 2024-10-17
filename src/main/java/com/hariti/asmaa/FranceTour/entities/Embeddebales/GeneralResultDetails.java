@@ -1,6 +1,7 @@
 package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 
 import jakarta.persistence.Embeddable;
+
 import java.time.LocalTime;
 
 @Embeddable
@@ -9,7 +10,8 @@ public class GeneralResultDetails {
     private int finalRank;
 
     // Constructors
-    public GeneralResultDetails() {}
+    public GeneralResultDetails() {
+    }
 
     public GeneralResultDetails(LocalTime totalTime, int finalRank) {
         this.totalTime = totalTime;

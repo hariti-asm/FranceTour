@@ -13,7 +13,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.*;
 
 public class TeamServiceTest {
@@ -32,6 +31,7 @@ public class TeamServiceTest {
         team.setId(1L);
         team.setName("Test Team");
     }
+
     @Test
     void testSave() {
         when(teamRepository.save(any(Team.class))).thenReturn(team);
@@ -42,6 +42,7 @@ public class TeamServiceTest {
         assertEquals("Test Team", savedTeam.getName());
         verify(teamRepository, times(1)).save(team);
     }
+
     @Test
     void testFindByName() {
         when(teamRepository.findByName("Test Team")).thenReturn(team);
@@ -61,6 +62,7 @@ public class TeamServiceTest {
 
         verify(teamRepository, times(1)).delete(team);
     }
+
     @Test
     void testFindAll() {
         List<Team> teams = Arrays.asList(team, new Team());
@@ -72,6 +74,7 @@ public class TeamServiceTest {
         assertEquals(2, foundTeams.size());
         verify(teamRepository, times(1)).findAll();
     }
+
     @Test
     void testFindById() {
         when(teamRepository.findById(1L)).thenReturn(Optional.of(team));
@@ -92,6 +95,7 @@ public class TeamServiceTest {
         assertFalse(foundTeam.isPresent());
         verify(teamRepository, times(1)).findById(2L);
     }
+
     @Test
     void testDeleteById() {
         doNothing().when(teamRepository).deleteById(1L);

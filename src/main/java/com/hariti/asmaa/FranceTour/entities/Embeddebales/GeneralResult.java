@@ -3,63 +3,55 @@ package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
 import jakarta.persistence.*;
-import java.time.Duration;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.Objects;
+
+@Getter
+@Setter
 @Entity
+@Table(name = "general_results")
 public class GeneralResult {
-    @EmbeddedId
-    private GeneralResultId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cyclist_id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cyclist_id", nullable = false)
     private Cyclist cyclist;
 
-    @ManyToOne
-    @JoinColumn(name = "competition_id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "competition_id", nullable = false)
     private Competition competition;
 
-    private Duration generalTime;
-    private Integer generalRank;
+    @Column(name = "final_position")
+    private Integer finalPosition;
 
-    // Getters and setters
+    @Column(name = "total_time")
+    private String totalTime;
 
-    public GeneralResultId getId() {
-        return id;
-    }
-
-    public void setId(GeneralResultId id) {
+    public GeneralResult(Long id, Cyclist cyclist, Competition competition, Integer finalPosition, String totalTime) {
         this.id = id;
-    }
-
-    public Cyclist getCyclist() {
-        return cyclist;
-    }
-
-    public void setCyclist(Cyclist cyclist) {
         this.cyclist = cyclist;
-    }
-
-    public Competition getCompetition() {
-        return competition;
-    }
-
-    public void setCompetition(Competition competition) {
         this.competition = competition;
+        this.finalPosition = finalPosition;
+        this.totalTime = totalTime;
     }
 
-    public Duration getGeneralTime() {
-        return generalTime;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GeneralResult that = (GeneralResult) o;
+        return Objects.equals(id, that.id) && Objects.equals(cyclist, that.cyclist) && Objects.equals(competition, that.competition) && Objects.equals(finalPosition, that.finalPosition) && Objects.equals(totalTime, that.totalTime);
     }
 
-    public void setGeneralTime(Duration generalTime) {
-        this.generalTime = generalTime;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, cyclist, competition, finalPosition, totalTime);
     }
 
-    public Integer getGeneralRank() {
-        return generalRank;
-    }
-
-    public void setGeneralRank(Integer generalRank) {
-        this.generalRank = generalRank;
-    }
+    // Constructors, equals, hashCode, and toString methods...
 }
