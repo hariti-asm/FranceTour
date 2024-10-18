@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfbfb30-1c20-4689-a431-fec8b25b5a30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/GeneralResultRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/RegistrationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/StageResultRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/StageResultService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Cyclist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Cyclist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/GeneralResultDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CyclistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CyclistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CyclistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CyclistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Embeddebales/StageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Stage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/GeneralResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/GeneralResultRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,56 +39,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.CompetitionServiceTest.deleteCompetitionTest.executor": "Run",
-    "JUnit.CompetitionServiceTest.executor": "Run",
-    "JUnit.CompetitionServiceTest.findCompetitionByIdTest.executor": "Run",
-    "JUnit.CompetitionServiceTest.testSaveCompetitionSuccess.executor": "Run",
-    "JUnit.CompetitionServiceTest.testSaveCompetition_NullCompetition.executor": "Debug",
-    "JUnit.CompetitionServiceTest.updateCompetitionNotFound.executor": "Run",
-    "JUnit.CompetitionServiceTest.updateCompetitionSuccess.executor": "Run",
-    "JUnit.CyclistServiceTest.testFindAllCyclists.executor": "Run",
-    "JUnit.CyclistServiceTest.testFindCyclistByIdNotFound.executor": "Run",
-    "JUnit.CyclistServiceTest.testUpdateCyclist.executor": "Run",
-    "JUnit.StageServiceTest.testGetAllStages.executor": "Run",
-    "JUnit.StageServiceTest.testGetStageById.executor": "Run",
-    "JUnit.StageServiceTest.testGetStageByIdNotFound.executor": "Run",
-    "JUnit.StageServiceTest.testSaveStage.executor": "Run",
-    "JUnit.StageServiceTest.testUpdateStage.executor": "Run",
-    "JUnit.TeamServiceTest.testDelete.executor": "Run",
-    "JUnit.TeamServiceTest.testDeleteById.executor": "Run",
-    "JUnit.TeamServiceTest.testFindByIdNotFound.executor": "Run",
-    "JUnit.TeamServiceTest.testFindByName.executor": "Run",
-    "JUnit.TeamServiceTest.testSave.executor": "Run",
-    "JUnit.TeamServiceTest.testUpdate.executor": "Run",
-    "Maven.Competitions_Cyclistes [clean,install].executor": "Run",
-    "Maven.Competitions_Cyclistes [clean,package].executor": "Run",
-    "Maven.FranceTour [clean,install].executor": "Run",
-    "Maven.FranceTour [clean,package].executor": "Run",
-    "Maven.FranceTour [clean].executor": "Run",
-    "Maven.FranceTour [dependency:resolve].executor": "Run",
-    "Maven.FranceTour [dependency:tree].executor": "Run",
-    "Maven.FranceTour [insta].executor": "Run",
-    "Maven.FranceTour [install].executor": "Run",
-    "Maven.FranceTour [test...].executor": "Run",
-    "Maven.FranceTour [test].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/asmaa/IdeaProjects/FranceTour/src/main/java/com/hariti/asmaa/FranceTour/services",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/asmaa/IdeaProjects/FranceTour/src/main/java/org/example/Main.java",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompetitionServiceTest.deleteCompetitionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompetitionServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompetitionServiceTest.findCompetitionByIdTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompetitionServiceTest.testSaveCompetitionSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompetitionServiceTest.testSaveCompetition_NullCompetition.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CompetitionServiceTest.updateCompetitionNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompetitionServiceTest.updateCompetitionSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CyclistServiceTest.testFindAllCyclists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CyclistServiceTest.testFindCyclistByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CyclistServiceTest.testUpdateCyclist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StageServiceTest.testGetAllStages.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StageServiceTest.testGetStageById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StageServiceTest.testGetStageByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StageServiceTest.testSaveStage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StageServiceTest.testUpdateStage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TeamServiceTest.testDelete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TeamServiceTest.testDeleteById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TeamServiceTest.testFindByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TeamServiceTest.testFindByName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TeamServiceTest.testSave.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TeamServiceTest.testUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Competitions_Cyclistes [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Competitions_Cyclistes [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [dependency:resolve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [dependency:tree].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [insta].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [test...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FranceTour [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/asmaa/IdeaProjects/FranceTour/src/main/java/com/hariti/asmaa/FranceTour/services&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/asmaa/IdeaProjects/FranceTour/src/main/java/org/example/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />

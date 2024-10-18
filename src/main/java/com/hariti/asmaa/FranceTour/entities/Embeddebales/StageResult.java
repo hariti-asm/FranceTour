@@ -1,7 +1,7 @@
 package com.hariti.asmaa.FranceTour.entities.Embeddebales;
 
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
-import com.hariti.asmaa.FranceTour.entities.Stage; // Ensure you import the Stage entity
+import com.hariti.asmaa.FranceTour.entities.Stage;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +22,8 @@ public class StageResult {
     @JoinColumn(name = "cyclist_id", nullable = false)
     private Cyclist cyclist;
 
-    @ManyToOne(fetch = FetchType.LAZY) // Establishing a ManyToOne relationship with Stage
-    @JoinColumn(name = "stage_id", nullable = false) // This should correspond to a foreign key in the stage_results table
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stage_id", nullable = false)
     private Stage stage;
 
     @Column(name = "stage_number", nullable = false)
@@ -39,13 +39,29 @@ public class StageResult {
     public StageResult() {}
 
     // Constructor with all fields
-    public StageResult(Long id, Cyclist cyclist, Stage stage, Integer stageNumber, Integer position, String time) {
+    public StageResult(Long id, Cyclist cyclist, Stage stage, Integer position, String time) {
         this.id = id;
         this.cyclist = cyclist;
-        this.stage = stage; // Add the Stage reference
-        this.stageNumber = stageNumber;
+        this.stage = stage;
         this.position = position;
         this.time = time;
+        this.setStage(stage); // This will set both stage and stageNumber
+    }
+
+    // Modified setter for stage to automatically set stageNumber
+    public void setStage(Stage stage) {
+        this.stage = stage;
+        if (stage != null) {
+            this.stageNumber = stage.getStageNumber();
+        }
+    }
+
+    @PrePersist
+    @PreUpdate
+    private void ensureStageNumber() {
+        if (this.stageNumber == null && this.stage != null) {
+            this.stageNumber = this.stage.getStageNumber();
+        }
     }
 
     @Override
@@ -53,24 +69,11 @@ public class StageResult {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StageResult that = (StageResult) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(stageNumber, that.stageNumber) &&
-                Objects.equals(position, that.position) &&
-                Objects.equals(time, that.time);
+        return Objects.equals(id, that.id) && Objects.equals(cyclist, that.cyclist) && Objects.equals(stage, that.stage) && Objects.equals(stageNumber, that.stageNumber) && Objects.equals(position, that.position) && Objects.equals(time, that.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, stageNumber, position, time);
-    }
-
-    @Override
-    public String toString() {
-        return "StageResult{" +
-                "id=" + id +
-                ", stageNumber=" + stageNumber +
-                ", position=" + position +
-                ", time='" + time + '\'' +
-                '}';
+        return Objects.hash(id, cyclist, stage, stageNumber, position, time);
     }
 }

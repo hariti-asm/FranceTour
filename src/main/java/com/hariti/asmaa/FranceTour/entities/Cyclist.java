@@ -24,7 +24,7 @@ public class Cyclist {
     private Integer age;
     private String nationality;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id")
     private Team team;
 
