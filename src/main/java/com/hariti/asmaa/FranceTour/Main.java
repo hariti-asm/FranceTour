@@ -83,7 +83,7 @@
 
             // Create stages
             Stage stage1 = new Stage();
-            stage1.setName("Stage 1 - Paris to Lyon");  // Add this line
+            stage1.setName("Stage 1 - Paris to Lyon");
             stage1.setCompetition(competition);
             stage1.setStageNumber(1);
             stage1.setStartLocation("Paris");
@@ -93,7 +93,7 @@
             stage1 = stageRepository.save(stage1);
 
             Stage stage2 = new Stage();
-            stage2.setName("Stage 2 - Lyon to Marseille");  // Add this line
+            stage2.setName("Stage 2 - Lyon to Marseille");
             stage2.setCompetition(competition);
             stage2.setStageNumber(2);
             stage2.setStartLocation("Lyon");
@@ -107,50 +107,51 @@
             result1Stage1.setCyclist(cyclist1);
             result1Stage1.setStage(stage1);
             result1Stage1.setPosition(2);
-            result1Stage1.setTime(String.valueOf(LocalTime.of(4, 30, 0))); // 4h30m
+            result1Stage1.setTime(String.valueOf(LocalTime.of(4, 30, 0)));
             stageResultRepository.save(result1Stage1);
 
             StageResult result2Stage1 = new StageResult();
             result2Stage1.setCyclist(cyclist2);
             result2Stage1.setStage(stage1);
             result2Stage1.setPosition(1);
-            result2Stage1.setTime(String.valueOf(LocalTime.of(4, 35, 0))); // 4h35m
+            result2Stage1.setTime(String.valueOf(LocalTime.of(4, 35, 0)));
             stageResultRepository.save(result2Stage1);
 
             StageResult result1Stage2 = new StageResult();
             result1Stage2.setCyclist(cyclist1);
             result1Stage2.setStage(stage2);
-            result1Stage2.setTime(String.valueOf(LocalTime.of(4, 15, 0))); // 4h15m
+            result1Stage2.setTime(String.valueOf(LocalTime.of(4, 15, 0)));
             stageResultRepository.save(result1Stage2);
 
             StageResult result2Stage2 = new StageResult();
             result2Stage2.setCyclist(cyclist2);
             result2Stage2.setStage(stage2);
-            result2Stage2.setTime(String.valueOf(LocalTime.of(4, 10, 0))); // 4h10m
+            result2Stage2.setTime(String.valueOf(LocalTime.of(4, 10, 0)));
             stageResultRepository.save(result2Stage2);
 
-//            System.out.println("\nStage 1 Results:");
-//            List<StageResult> stage1Results = stageResultRepository.findByStageId(stage1.getId());
-//            for (StageResult result : stage1Results) {
-//                System.out.println(String.format("Cyclist: %s %s, Time: %s, Position: %d",
-//                        result.getCyclist().getFirstName(),
-//                        result.getCyclist().getLastName(),
-//                        result.getTime(),
-//                        result.getPosition()));
-//            }
-//
-//            System.out.println("\nStage 2 Results:");
-//            List<StageResult> stage2Results = stageResultRepository.findByStageId(stage2.getId());
-//            for (StageResult result : stage2Results) {
-//                System.out.println(String.format("Cyclist: %s %s, Time: %s, Position: %d",
-//                        result.getCyclist().getFirstName(),
-//                        result.getCyclist().getLastName(),
-//                        result.getTime(),
-//                        result.getPosition()));
-//            }
+            System.out.println("\nStage 1 Results:");
+            List<StageResult> stage1Results = stageResultRepository.findByStageIdWithCyclist(stage1.getId());
+            for (StageResult result : stage1Results) {
+                System.out.println(String.format("Cyclist: %s %s, Time: %s, Position: %d",
+                        result.getCyclist().getFirstName(),
+                        result.getCyclist().getLastName(),
+                        result.getTime(),
+                        result.getPosition()));
+            }
+
+            System.out.println("\nStage 2 Results:");
+            List<StageResult> stage2Results = stageResultRepository.findByStageIdWithCyclist(stage2.getId());
+            for (StageResult result : stage2Results) {
+                System.out.println(String.format("Cyclist: %s %s, Time: %s, Position: %d",
+                        result.getCyclist().getFirstName(),
+                        result.getCyclist().getLastName(),
+                        result.getTime(),
+                        result.getPosition()));
+            }
 
             System.out.println("\nGeneral Classification:");
-            List<GeneralResult> generalResults = generalResultRepository.findByCompetitionId(competition.getId());
+            List<GeneralResult> generalResults = generalResultRepository.findByCompetitionIdWithCyclist(competition.getId());
+
             for (GeneralResult result : generalResults) {
                 System.out.println(String.format("Cyclist: %s %s, Total Time: %s, Rank: %d",
                         result.getCyclist().getFirstName(),
