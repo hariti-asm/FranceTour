@@ -1,163 +1,200 @@
-    package com.hariti.asmaa.FranceTour;
+package com.hariti.asmaa.FranceTour;
 
-    import com.hariti.asmaa.FranceTour.config.JPAConfig;
-    import com.hariti.asmaa.FranceTour.entities.*;
-    import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
-    import com.hariti.asmaa.FranceTour.entities.Embeddebales.StageResult;
-    import com.hariti.asmaa.FranceTour.repositories.*;
-    import org.springframework.context.ApplicationContext;
-    import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import com.hariti.asmaa.FranceTour.config.JPAConfig;
+import com.hariti.asmaa.FranceTour.entities.*;
+import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
+import com.hariti.asmaa.FranceTour.entities.Embeddebales.StageResult;
+import com.hariti.asmaa.FranceTour.repositories.*;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.transaction.support.TransactionTemplate;
 
-    import java.time.LocalDate;
-    import java.time.LocalTime;
-    import java.util.List;
-    import java.util.Optional;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+import java.util.Optional;
 
-    public class Main {
-        public static void main(String[] args) {
-            ApplicationContext context = new AnnotationConfigApplicationContext(JPAConfig.class);
+public class Main {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JPAConfig.class);
 
-            CompetitionRepository competitionRepository = context.getBean(CompetitionRepository.class);
-            CyclistRepository cyclistRepository = context.getBean(CyclistRepository.class);
-            StageRepository stageRepository = context.getBean(StageRepository.class);
-            StageResultRepository stageResultRepository = context.getBean(StageResultRepository.class);
-            GeneralResultRepository generalResultRepository = context.getBean(GeneralResultRepository.class);
+        CompetitionRepository competitionRepository = context.getBean(CompetitionRepository.class);
+        CyclistRepository cyclistRepository = context.getBean(CyclistRepository.class);
+        StageRepository stageRepository = context.getBean(StageRepository.class);
+        StageResultRepository stageResultRepository = context.getBean(StageResultRepository.class);
+        GeneralResultRepository generalResultRepository = context.getBean(GeneralResultRepository.class);
 
-            // Create competition
-            Competition competition = new Competition();
-            competition.setName("Tour de France 2024");
-            competition.setLocation("France");
-            competition.setStartDate(LocalDate.of(2024, 7, 1));
-            competition.setEndDate(LocalDate.of(2024, 7, 21));
-            competition = competitionRepository.save(competition);
+        TransactionTemplate transactionTemplate = context.getBean(TransactionTemplate.class);
 
-            // Create cyclists
-            Cyclist cyclist1 = new Cyclist();
-            cyclist1.setFirstName("John");
-            cyclist1.setLastName("Doe");
-            cyclist1.setAge(28);
-            cyclist1.setNationality("USA");
-            cyclist1 = cyclistRepository.save(cyclist1);
+        transactionTemplate.execute(status -> {
+            try {
+                // Create competition
+                Competition competition = createCompetition(competitionRepository);
 
-            Cyclist cyclist2 = new Cyclist();
-            cyclist2.setFirstName("Jane");
-            cyclist2.setLastName("Smith");
-            cyclist2.setAge(26);
-            cyclist2.setNationality("UK");
-            cyclist2 = cyclistRepository.save(cyclist2);
+                // Create cyclists
+                Cyclist cyclist1 = createCyclist(cyclistRepository, "John", "Doe", 28, "USA");
+                Cyclist cyclist2 = createCyclist(cyclistRepository, "Jane", "Smith", 26, "UK");
 
-            GeneralResult result1 = new GeneralResult();
-            result1.setCyclist(cyclist1);
-            result1.setCompetition(competition);
-            generalResultRepository.save(result1);
+                // Register cyclists in the competition
+                registerCyclist(generalResultRepository, cyclist1, competition);
+                registerCyclist(generalResultRepository, cyclist2, competition);
 
-            GeneralResult result2 = new GeneralResult();
-            result2.setCyclist(cyclist2);
-            result2.setCompetition(competition);
-            generalResultRepository.save(result2);
+                // Display registered cyclists
+                displayRegisteredCyclists(cyclistRepository, competition);
 
-            System.out.println("Cyclists registered for the competition");
+                // Unregister a cyclist
+                unregisterCyclist(generalResultRepository, cyclist1, competition);
+                displayRegisteredCyclists(cyclistRepository, competition);
 
-            // Test getCyclistsInCompetition
-            List<Cyclist> registeredCyclists = cyclistRepository.findByGeneralResults_CompetitionId(competition.getId());
-            System.out.println("Registered cyclists for " + competition.getName() + ":");
-            for (Cyclist cyclist : registeredCyclists) {
-                System.out.println(" - " + cyclist.getFirstName() + " " + cyclist.getLastName());
+                // Create stages
+                Stage stage1 = createStage(stageRepository, competition, "Stage 1 - Paris to Lyon", 1, "Paris", "Lyon", LocalDate.of(2024, 7, 1), 200.5);
+                Stage stage2 = createStage(stageRepository, competition, "Stage 2 - Lyon to Marseille", 2, "Lyon", "Marseille", LocalDate.of(2024, 7, 2), 180.3);
+
+                // Record stage results
+                recordStageResults(stageResultRepository, cyclist1, stage1, 2, "04:30:00");
+                recordStageResults(stageResultRepository, cyclist2, stage1, 1, "04:35:00");
+                recordStageResults(stageResultRepository, cyclist1, stage2, 2, "04:15:00");
+                recordStageResults(stageResultRepository, cyclist2, stage2, 1, "04:10:00");
+
+                // Update general results
+                updateGeneralResults(generalResultRepository, competition, stageResultRepository);
+
+                // Display results
+                displayStageResults(stageResultRepository, stage1);
+                displayStageResults(stageResultRepository, stage2);
+                displayGeneralClassification(generalResultRepository, competition);
+
+                return null;
+            } catch (Exception e) {
+                status.setRollbackOnly();
+                e.printStackTrace();
+                return null;
+            }
+        });
+
+        context.close();
+    }
+
+    private static Competition createCompetition(CompetitionRepository competitionRepository) {
+        Competition competition = new Competition();
+        competition.setName("Tour de France 2024");
+        competition.setLocation("France");
+        competition.setStartDate(LocalDate.of(2024, 7, 1));
+        competition.setEndDate(LocalDate.of(2024, 7, 21));
+        return competitionRepository.save(competition);
+    }
+
+    private static Cyclist createCyclist(CyclistRepository cyclistRepository, String firstName, String lastName, int age, String nationality) {
+        Cyclist cyclist = new Cyclist();
+        cyclist.setFirstName(firstName);
+        cyclist.setLastName(lastName);
+        cyclist.setAge(age);
+        cyclist.setNationality(nationality);
+        return cyclistRepository.save(cyclist);
+    }
+
+    private static void registerCyclist(GeneralResultRepository generalResultRepository, Cyclist cyclist, Competition competition) {
+        GeneralResult result = new GeneralResult();
+        result.setCyclist(cyclist);
+        result.setCompetition(competition);
+        generalResultRepository.save(result);
+    }
+
+    private static void displayRegisteredCyclists(CyclistRepository cyclistRepository, Competition competition) {
+        List<Cyclist> registeredCyclists = cyclistRepository.findByGeneralResults_CompetitionId(competition.getId());
+        System.out.println("Registered cyclists for " + competition.getName() + ":");
+        for (Cyclist cyclist : registeredCyclists) {
+            System.out.println(" - " + cyclist.getFirstName() + " " + cyclist.getLastName());
+        }
+    }
+
+    private static void unregisterCyclist(GeneralResultRepository generalResultRepository, Cyclist cyclist, Competition competition) {
+        Optional<GeneralResult> resultToDelete = generalResultRepository.findByCyclistIdAndCompetitionId(cyclist.getId(), competition.getId());
+        if (resultToDelete.isPresent()) {
+            generalResultRepository.delete(resultToDelete.get());
+            System.out.println("Unregistered " + cyclist.getFirstName() + " " + cyclist.getLastName() + " from the competition");
+        } else {
+            System.out.println("Could not find registration for " + cyclist.getFirstName());
+        }
+    }
+
+    private static Stage createStage(StageRepository stageRepository, Competition competition, String name, int stageNumber, String startLocation, String endLocation, LocalDate date, double distance) {
+        Stage stage = new Stage();
+        stage.setName(name);
+        stage.setCompetition(competition);
+        stage.setStageNumber(stageNumber);
+        stage.setStartLocation(startLocation);
+        stage.setEndLocation(endLocation);
+        stage.setDate(date);
+        stage.setDistance(distance);
+        return stageRepository.save(stage);
+    }
+
+    private static void recordStageResults(StageResultRepository stageResultRepository, Cyclist cyclist, Stage stage, int position, String time) {
+        StageResult result = new StageResult();
+        result.setCyclist(cyclist);
+        result.setStage(stage);
+        result.setPosition(position);
+        result.setTime(time);
+        stageResultRepository.save(result);
+    }
+
+    private static void updateGeneralResults(GeneralResultRepository generalResultRepository, Competition competition, StageResultRepository stageResultRepository) {
+        List<Cyclist> cyclists = generalResultRepository.findCyclistsByCompetitionId(competition.getId());
+
+        for (Cyclist cyclist : cyclists) {
+            List<StageResult> stageResults = stageResultRepository.findByCyclistIdAndStageCompetitionId(cyclist.getId(), competition.getId());
+
+            long totalTimeInSeconds = 0;
+            for (StageResult result : stageResults) {
+                LocalTime time = LocalTime.parse(result.getTime());
+                totalTimeInSeconds += time.toSecondOfDay();
             }
 
-            // Test unregistering a cyclist
-            Optional<GeneralResult> resultToDelete = generalResultRepository.findByCyclistIdAndCompetitionId(cyclist1.getId(), competition.getId());
-            if (resultToDelete.isPresent()) {
-                generalResultRepository.delete(resultToDelete.get());
-                System.out.println("Unregistered cyclist1 from the competition");
-            } else {
-                System.out.println("Could not find registration for cyclist1");
-            }
-
-            // Check registered cyclists again
-            registeredCyclists = cyclistRepository.findByGeneralResults_CompetitionId(competition.getId());
-            System.out.println("Updated registered cyclists for " + competition.getName() + ":");
-            for (Cyclist cyclist : registeredCyclists) {
-                System.out.println(" - " + cyclist.getFirstName() + " " + cyclist.getLastName());
-            }
-
-            // Create stages
-            Stage stage1 = new Stage();
-            stage1.setName("Stage 1 - Paris to Lyon");
-            stage1.setCompetition(competition);
-            stage1.setStageNumber(1);
-            stage1.setStartLocation("Paris");
-            stage1.setEndLocation("Lyon");
-            stage1.setDate(LocalDate.of(2024, 7, 1));
-            stage1.setDistance(200.5);
-            stage1 = stageRepository.save(stage1);
-
-            Stage stage2 = new Stage();
-            stage2.setName("Stage 2 - Lyon to Marseille");
-            stage2.setCompetition(competition);
-            stage2.setStageNumber(2);
-            stage2.setStartLocation("Lyon");
-            stage2.setEndLocation("Marseille");
-            stage2.setDate(LocalDate.of(2024, 7, 2));
-            stage2.setDistance(180.3);
-            stage2 = stageRepository.save(stage2);
-            System.out.println("Testing stage rankings trigger...");
-
-            StageResult result1Stage1 = new StageResult();
-            result1Stage1.setCyclist(cyclist1);
-            result1Stage1.setStage(stage1);
-            result1Stage1.setPosition(2);
-            result1Stage1.setTime(String.valueOf(LocalTime.of(4, 30, 0)));
-            stageResultRepository.save(result1Stage1);
-
-            StageResult result2Stage1 = new StageResult();
-            result2Stage1.setCyclist(cyclist2);
-            result2Stage1.setStage(stage1);
-            result2Stage1.setPosition(1);
-            result2Stage1.setTime(String.valueOf(LocalTime.of(4, 35, 0)));
-            stageResultRepository.save(result2Stage1);
-
-            StageResult result1Stage2 = new StageResult();
-            result1Stage2.setCyclist(cyclist1);
-            result1Stage2.setStage(stage2);
-            result1Stage2.setTime(String.valueOf(LocalTime.of(4, 15, 0)));
-            stageResultRepository.save(result1Stage2);
-
-            StageResult result2Stage2 = new StageResult();
-            result2Stage2.setCyclist(cyclist2);
-            result2Stage2.setStage(stage2);
-            result2Stage2.setTime(String.valueOf(LocalTime.of(4, 10, 0)));
-            stageResultRepository.save(result2Stage2);
-
-            System.out.println("\nStage 1 Results:");
-            List<StageResult> stage1Results = stageResultRepository.findByStageIdWithCyclist(stage1.getId());
-            for (StageResult result : stage1Results) {
-                System.out.println(String.format("Cyclist: %s %s, Time: %s, Position: %d",
-                        result.getCyclist().getFirstName(),
-                        result.getCyclist().getLastName(),
-                        result.getTime(),
-                        result.getPosition()));
-            }
-
-            System.out.println("\nStage 2 Results:");
-            List<StageResult> stage2Results = stageResultRepository.findByStageIdWithCyclist(stage2.getId());
-            for (StageResult result : stage2Results) {
-                System.out.println(String.format("Cyclist: %s %s, Time: %s, Position: %d",
-                        result.getCyclist().getFirstName(),
-                        result.getCyclist().getLastName(),
-                        result.getTime(),
-                        result.getPosition()));
-            }
-
-            System.out.println("\nGeneral Classification:");
-            List<GeneralResult> generalResults = generalResultRepository.findByCompetitionIdWithCyclist(competition.getId());
-
-            for (GeneralResult result : generalResults) {
-                System.out.println(String.format("Cyclist: %s %s, Total Time: %s, Rank: %d",
-                        result.getCyclist().getFirstName(),
-                        result.getCyclist().getLastName(),
-                        result.getTotalTime(),
-                        result.getFinalPosition()));
+            Optional<GeneralResult> generalResultOpt = generalResultRepository.findByCyclistIdAndCompetitionId(cyclist.getId(), competition.getId());
+            if (generalResultOpt.isPresent()) {
+                GeneralResult generalResult = generalResultOpt.get();
+                generalResult.setTotalTime(LocalTime.ofSecondOfDay(totalTimeInSeconds).toString());
+                generalResult.setFinalPosition(calculateRank(generalResultRepository, generalResult, competition));
+                generalResultRepository.save(generalResult);
             }
         }
+    }
+
+    private static int calculateRank(GeneralResultRepository generalResultRepository, GeneralResult generalResult, Competition competition) {
+        List<GeneralResult> allResults = generalResultRepository.findByCompetitionId(competition.getId());
+
+        allResults.sort((a, b) -> {
+            Long timeA = (long) LocalTime.parse(a.getTotalTime()).toSecondOfDay();
+            Long timeB = (long) LocalTime.parse(b.getTotalTime()).toSecondOfDay();
+            return Long.compare(timeA, timeB);
+        });
+
+        return allResults.indexOf(generalResult) + 1;
+    }
+
+    private static void displayStageResults(StageResultRepository stageResultRepository, Stage stage) {
+        System.out.println("\nResults for " + stage.getName() + ":");
+        List<StageResult> stageResults = stageResultRepository.findByStageIdWithCyclist(stage.getId());
+        for (StageResult result : stageResults) {
+            System.out.println(String.format("Cyclist: %s %s, Time: %s, Position: %d",
+                    result.getCyclist().getFirstName(),
+                    result.getCyclist().getLastName(),
+                    result.getTime(),
+                    result.getPosition()));
         }
+    }
+
+    private static void displayGeneralClassification(GeneralResultRepository generalResultRepository, Competition competition) {
+        System.out.println("\nGeneral Classification:");
+        List<GeneralResult> generalResults = generalResultRepository.findByCompetitionIdWithCyclist(competition.getId());
+        for (GeneralResult result : generalResults) {
+            String totalTime = result.getTotalTime() != null ? result.getTotalTime() : "N/A";
+            int rank = result.getFinalPosition() != null ? result.getFinalPosition() : -1; // Or any default value
+            System.out.println(String.format("Cyclist: %s %s, Total Time: %s, Rank: %d",
+                    result.getCyclist().getFirstName(),
+                    result.getCyclist().getLastName(),
+                    totalTime,
+                    rank));
+        }
+    }
+}

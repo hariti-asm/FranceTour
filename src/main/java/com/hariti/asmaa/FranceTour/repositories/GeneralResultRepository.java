@@ -17,7 +17,6 @@ public interface GeneralResultRepository extends JpaRepository<GeneralResult, Lo
     Optional<GeneralResult> findByCyclistIdAndCompetitionId(Long cyclistId, Long competitionId);
     boolean existsByCyclistAndCompetition(Cyclist cyclist, Competition competition);
     void deleteByCyclistIdAndCompetitionId(Long cyclistId, Long competitionId);
-
     List<GeneralResult> findByCompetitionId(Long id);
 
     @Query("SELECT gr FROM GeneralResult gr JOIN FETCH gr.cyclist WHERE gr.competition.id = :competitionId")
@@ -42,5 +41,11 @@ public interface GeneralResultRepository extends JpaRepository<GeneralResult, Lo
             "CAST(SUBSTRING(sr.time, 4, 2) AS int) * 60 + " +
             "CAST(SUBSTRING(sr.time, 7, 2) AS int)) " +
             "FROM StageResult sr WHERE sr.cyclist.id = :cyclistId AND sr.stage.competition.id = :competitionId)")
-    Long calculateFinalPositionForCyclist(Long cyclistId, Long competitionId);
+    Long calculateFinalPosition(Long cyclistId, Long competitionId);
+
+    @Query("SELECT gr FROM GeneralResult gr WHERE gr.competition.id = :competitionId ORDER BY gr.totalTime ASC")
+    List<GeneralResult> findByCompetitionIdOrderByTotalTimeAsc(@Param("competitionId") Long competitionId);
+
+    @Query("SELECT DISTINCT gr.cyclist FROM GeneralResult gr WHERE gr.competition.id = :competitionId")
+    List<Cyclist> findCyclistsByCompetitionId(@Param("competitionId") Long competitionId);
 }

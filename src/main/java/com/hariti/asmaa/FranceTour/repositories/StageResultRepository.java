@@ -10,4 +10,6 @@ import java.util.List;
 public interface StageResultRepository extends JpaRepository<StageResult, Long> {
     @Query("SELECT sr FROM StageResult sr JOIN FETCH sr.cyclist WHERE sr.stage.id = :stageId")
     List<StageResult> findByStageIdWithCyclist(@Param("stageId") Long stageId);
+    List<StageResult> findByCyclistIdAndStageCompetitionId(Long cyclistId, Long competitionId);
+
 }
