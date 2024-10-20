@@ -10,8 +10,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,6 +61,24 @@ public class Main {
                 displayStageResults(stageResultRepository, stage1);
                 displayStageResults(stageResultRepository, stage2);
                 displayGeneralClassification(generalResultRepository, competition);
+
+                // Generate competition report
+                String report = generateCompetitionReport(competition.getId(), competitionRepository, cyclistRepository, stageResultRepository, generalResultRepository);
+                System.out.println(report);
+
+                // Get past competitions
+                List<Competition> pastCompetitions = getPastCompetitions(competitionRepository);
+                System.out.println("Past Competitions:");
+                for (Competition comp : pastCompetitions) {
+                    System.out.println(comp.getName() + " - " + comp.getStartDate() + " to " + comp.getEndDate());
+                }
+
+                // Get cyclist performance history
+                List<GeneralResult> cyclistHistory = getCyclistPerformanceHistory(cyclist2.getId(), generalResultRepository);
+                System.out.println("Cyclist Performance History:");
+                for (GeneralResult result : cyclistHistory) {
+                    System.out.println(result.getCompetition().getName() + " - Position: " + result.getFinalPosition());
+                }
 
                 return null;
             } catch (Exception e) {
@@ -189,12 +206,63 @@ public class Main {
         List<GeneralResult> generalResults = generalResultRepository.findByCompetitionIdWithCyclist(competition.getId());
         for (GeneralResult result : generalResults) {
             String totalTime = result.getTotalTime() != null ? result.getTotalTime() : "N/A";
-            int rank = result.getFinalPosition() != null ? result.getFinalPosition() : -1; // Or any default value
+            int rank = result.getFinalPosition() != null ? result.getFinalPosition() : -1;
             System.out.println(String.format("Cyclist: %s %s, Total Time: %s, Rank: %d",
                     result.getCyclist().getFirstName(),
                     result.getCyclist().getLastName(),
                     totalTime,
                     rank));
         }
+    }
+
+    private static String generateCompetitionReport(Long competitionId, CompetitionRepository competitionRepository,
+                                                    CyclistRepository cyclistRepository, StageResultRepository stageResultRepository,
+                                                    GeneralResultRepository generalResultRepository) {
+        Competition competition = competitionRepository.findById(competitionId)
+                .orElseThrow(() -> new RuntimeException("Competition not found"));
+
+        StringBuilder report = new StringBuilder();
+        report.append("Rapport de compétition: ").append(competition.getName()).append("\n\n");
+
+        // Participants
+        List<Cyclist> participants = cyclistRepository.findByGeneralResults_CompetitionId(competitionId);
+        report.append("Participants:\n");
+        for (Cyclist cyclist : participants) {
+            report.append("- ").append(cyclist.getFirstName()).append(" ").append(cyclist.getLastName()).append("\n");
+        }
+        report.append("\n");
+
+        // Stage results
+        Set<Stage> stages = competition.getStages();
+        for (Stage stage : stages) {
+            report.append("Résultats de l'étape: ").append(stage.getName()).append("\n");
+            List<StageResult> stageResults = stageResultRepository.findByStageIdWithCyclist(stage.getId());
+            for (StageResult result : stageResults) {
+                report.append("- ").append(result.getCyclist().getFirstName()).append(" ")
+                        .append(result.getCyclist().getLastName()).append(": ")
+                        .append(result.getPosition()).append(", Time: ").append(result.getTime()).append("\n");
+            }
+            report.append("\n");
+        }
+
+        // General classification
+        report.append("Classement général:\n");
+        List<GeneralResult> generalResults = generalResultRepository.findByCompetitionIdWithCyclist(competitionId);
+        for (GeneralResult result : generalResults) {
+            report.append("- ").append(result.getCyclist().getFirstName()).append(" ")
+                    .append(result.getCyclist().getLastName()).append(": ")
+                    .append(result.getFinalPosition()).append(", Total Time: ").append(result.getTotalTime()).append("\n");
+        }
+
+        return report.toString();
+    }
+
+    private static List<Competition> getPastCompetitions(CompetitionRepository competitionRepository) {
+        LocalDate today = LocalDate.now();
+        return competitionRepository.findByEndDateBefore(today);
+    }
+
+    private static List<GeneralResult> getCyclistPerformanceHistory(Long cyclistId, GeneralResultRepository generalResultRepository) {
+        return generalResultRepository.findByCyclistIdOrderByCompetitionStartDateDesc(cyclistId);
     }
 }

@@ -48,4 +48,5 @@ public interface GeneralResultRepository extends JpaRepository<GeneralResult, Lo
 
     @Query("SELECT DISTINCT gr.cyclist FROM GeneralResult gr WHERE gr.competition.id = :competitionId")
     List<Cyclist> findCyclistsByCompetitionId(@Param("competitionId") Long competitionId);
+    List<GeneralResult> findByCyclistIdOrderByCompetitionStartDateDesc(Long cyclistId);
 }
