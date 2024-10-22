@@ -38,7 +38,7 @@ public class CompetitionServiceTest {
     @Test
     @DisplayName("Test saving competition successfully")
     public void testSaveCompetitionSuccess() {
-        when(competitionRepository.findCompetitionByName(anyString())).thenReturn(Optional.empty());
+        when(competitionRepository.findCompetitionByName(anyString())).thenReturn(null);
         when(competitionRepository.save(any(Competition.class))).thenReturn(competition);
 
         Competition savedCompetition = competitionService.saveCompetition(competition);
@@ -72,12 +72,12 @@ public class CompetitionServiceTest {
     @Test
     @DisplayName("Test finding competition by name")
     public void testFindCompetitionByName() {
-        when(competitionRepository.findCompetitionByName(competition.getName().toLowerCase())).thenReturn(Optional.of(competition));
+        when(competitionRepository.findCompetitionByName(competition.getName().toLowerCase())).thenReturn(competition);
 
-        Optional<Competition> competitionOptional = competitionService.findCompetitionByName(competition.getName());
+      Competition competitionOptional = competitionService.findCompetitionByName(competition.getName());
 
-        assertTrue(competitionOptional.isPresent());
-        assertEquals(competition, competitionOptional.get());
+        assertTrue(competitionOptional !=null );
+        assertEquals(competition, competitionOptional);
         verify(competitionRepository, times(1)).findCompetitionByName(competition.getName().toLowerCase());
     }
 
@@ -85,12 +85,12 @@ public class CompetitionServiceTest {
     @DisplayName("Test finding competition by name with case sensitivity")
     public void testFindCompetitionByNameWithSensitiveCase() {
         String lowerCaseName = competition.getName().toLowerCase();
-        when(competitionRepository.findCompetitionByName(lowerCaseName)).thenReturn(Optional.of(competition));
+        when(competitionRepository.findCompetitionByName(lowerCaseName)).thenReturn(null);
 
-        Optional<Competition> competitionOptional = competitionService.findCompetitionByName(competition.getName());
+        Competition competitionOptional = competitionService.findCompetitionByName(competition.getName());
 
-        assertTrue(competitionOptional.isPresent());
-        assertEquals(competition, competitionOptional.get());
+        assertTrue(competitionOptional !=null);
+        assertEquals(competition, competitionOptional);
         verify(competitionRepository, times(1)).findCompetitionByName(lowerCaseName);
     }
 
@@ -98,11 +98,11 @@ public class CompetitionServiceTest {
     @DisplayName("Test finding competition with invalid name")
     public void testFindCompetitionByInvalidName() {
         String invalidName = "Non-existent Competition";
-        when(competitionRepository.findCompetitionByName(invalidName.toLowerCase())).thenReturn(Optional.empty());
+        when(competitionRepository.findCompetitionByName(invalidName.toLowerCase())).thenReturn(null);
 
-        Optional<Competition> competitionOptional = competitionService.findCompetitionByName(invalidName);
+        Competition competitionOptional = competitionService.findCompetitionByName(invalidName);
 
-        assertFalse(competitionOptional.isPresent());
+        assertFalse(competitionOptional != null);
         verify(competitionRepository, times(1)).findCompetitionByName(invalidName.toLowerCase());
     }
 

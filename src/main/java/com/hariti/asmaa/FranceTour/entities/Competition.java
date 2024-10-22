@@ -34,10 +34,10 @@ public class Competition {
     @Column(name = "location")
     private String location;
 
-    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Stage> stages = new HashSet<>();
 
-    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+@OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<GeneralResult> generalResults = new HashSet<>();
 
     public Competition(Long id, String name, LocalDate startDate, LocalDate endDate, String location, Set<Stage> stages, Set<GeneralResult> generalResults) {

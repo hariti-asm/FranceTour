@@ -10,18 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfbfb30-1c20-4689-a431-fec8b25b5a30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/controllers/TeamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/response/ResponseBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/controllers/CompetitionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/WebMvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Competition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Competition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CompetitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CompetitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/response/ResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/response/ResponseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CompetitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/CompetitionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,11 +138,11 @@
       <command value="mvn dependency:resolve" />
       <command value="mvn dependency:tree " />
       <command value="mvn test " />
-      <command value="mvn clean" />
       <command value="mvn test" />
       <command value="mvn clean install" />
       <command value="mvn clean package " />
       <command value="mvn clean install " />
+      <command value="mvn clean" />
     </option>
   </component>
   <component name="RunManager" selected="Smart Tomcat.Unnamed">
@@ -224,7 +221,7 @@
       <workItem from="1728910741317" duration="34661000" />
       <workItem from="1729073852986" duration="21505000" />
       <workItem from="1729154992046" duration="11779000" />
-      <workItem from="1729543151604" duration="12532000" />
+      <workItem from="1729543151604" duration="20618000" />
     </task>
     <servers />
   </component>
