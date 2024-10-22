@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,21 +51,26 @@ class StageServiceTest {
 
     @Test
     void testGetAllStages() {
-        List<Stage> stages = Arrays.asList(stage, new Stage());
-        when(stageRepository.findAll()).thenReturn(stages);
+        // Arrange
+        List<Stage> stages = Arrays.asList(new Stage(), new Stage());
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<Stage> pagedStages = new PageImpl<>(stages);
 
-        List<Stage> foundStages = stageService.getAllStages();
+        when(stageRepository.findAll(pageable)).thenReturn(pagedStages);
 
+        // Act
+        Page<Stage> foundStages = stageService.findAllStages(pageable);
+
+        // Assert
         assertNotNull(foundStages);
-        assertEquals(2, foundStages.size());
-        verify(stageRepository, times(1)).findAll();
+        assertEquals(2, foundStages.getContent().size());  // Check the size of the content
+        verify(stageRepository, times(1)).findAll(pageable);
     }
-
     @Test
     void testGetStageById() {
         when(stageRepository.findById(1L)).thenReturn(Optional.of(stage));
 
-        Optional<Stage> foundStage = stageService.getStageById(1L);
+        Optional<Stage> foundStage = stageService.findStageById(1L);
 
         assertTrue(foundStage.isPresent());
         assertEquals("Mountain Stage", foundStage.get().getName());
@@ -72,7 +81,7 @@ class StageServiceTest {
     void testGetStageByIdNotFound() {
         when(stageRepository.findById(2L)).thenReturn(Optional.empty());
 
-        Optional<Stage> foundStage = stageService.getStageById(2L);
+        Optional<Stage> foundStage = stageService.findStageById(2L);
 
         assertFalse(foundStage.isPresent());
         verify(stageRepository, times(1)).findById(2L);
@@ -82,7 +91,7 @@ class StageServiceTest {
     void testDeleteStageById() {
         doNothing().when(stageRepository).deleteById(1L);
 
-        stageService.deleteStageById(1L);
+        stageService.deleteStage(1L);
 
         verify(stageRepository, times(1)).deleteById(1L);
     }
