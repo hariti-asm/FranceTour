@@ -2,10 +2,11 @@ package com.hariti.asmaa.FranceTour.services;
 
 import com.hariti.asmaa.FranceTour.entities.Team;
 import com.hariti.asmaa.FranceTour.repositories.TeamRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class TeamService {
     private final TeamRepository teamRepository;
 
@@ -37,7 +38,7 @@ public class TeamService {
         teamRepository.deleteById(id);
     }
 
-    public void update(Team team) {
-        teamRepository.save(team);
+    public Team update(Team team) {
+        return team;
     }
 }

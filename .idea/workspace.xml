@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="francetour" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfbfb30-1c20-4689-a431-fec8b25b5a30" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/controllers/TeamController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/response/ResponseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CompetitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/CompetitionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/GeneralResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/GeneralResultRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/StageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/repositories/StageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/JPAConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/config/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/entities/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour/services/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,71 +39,97 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-22.0.2/Contents/Home/lib/src.zip!/java.base/sun/nio/ch/Net.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2nQgVXGOZqhTXK83NR64rjagGeG" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompetitionServiceTest.deleteCompetitionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompetitionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompetitionServiceTest.findCompetitionByIdTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompetitionServiceTest.testSaveCompetitionSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompetitionServiceTest.testSaveCompetition_NullCompetition.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CompetitionServiceTest.updateCompetitionNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompetitionServiceTest.updateCompetitionSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CyclistServiceTest.testFindAllCyclists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CyclistServiceTest.testFindCyclistByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CyclistServiceTest.testUpdateCyclist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StageServiceTest.testGetAllStages.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StageServiceTest.testGetStageById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StageServiceTest.testGetStageByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StageServiceTest.testSaveStage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StageServiceTest.testUpdateStage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TeamServiceTest.testDelete.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TeamServiceTest.testDeleteById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TeamServiceTest.testFindByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TeamServiceTest.testFindByName.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TeamServiceTest.testSave.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TeamServiceTest.testUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Competitions_Cyclistes [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Competitions_Cyclistes [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [dependency:resolve].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [dependency:tree].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [insta].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [test...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.FranceTour [test].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/asmaa/IdeaProjects/FranceTour/src/main/java/com/hariti/asmaa/FranceTour/services&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/asmaa/IdeaProjects/FranceTour/src/main/java/org/example/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.CompetitionServiceTest.deleteCompetitionTest.executor": "Run",
+    "JUnit.CompetitionServiceTest.executor": "Run",
+    "JUnit.CompetitionServiceTest.findCompetitionByIdTest.executor": "Run",
+    "JUnit.CompetitionServiceTest.testSaveCompetitionSuccess.executor": "Run",
+    "JUnit.CompetitionServiceTest.testSaveCompetition_NullCompetition.executor": "Debug",
+    "JUnit.CompetitionServiceTest.updateCompetitionNotFound.executor": "Run",
+    "JUnit.CompetitionServiceTest.updateCompetitionSuccess.executor": "Run",
+    "JUnit.CyclistServiceTest.testFindAllCyclists.executor": "Run",
+    "JUnit.CyclistServiceTest.testFindCyclistByIdNotFound.executor": "Run",
+    "JUnit.CyclistServiceTest.testUpdateCyclist.executor": "Run",
+    "JUnit.StageServiceTest.testGetAllStages.executor": "Run",
+    "JUnit.StageServiceTest.testGetStageById.executor": "Run",
+    "JUnit.StageServiceTest.testGetStageByIdNotFound.executor": "Run",
+    "JUnit.StageServiceTest.testSaveStage.executor": "Run",
+    "JUnit.StageServiceTest.testUpdateStage.executor": "Run",
+    "JUnit.TeamServiceTest.testDelete.executor": "Run",
+    "JUnit.TeamServiceTest.testDeleteById.executor": "Run",
+    "JUnit.TeamServiceTest.testFindByIdNotFound.executor": "Run",
+    "JUnit.TeamServiceTest.testFindByName.executor": "Run",
+    "JUnit.TeamServiceTest.testSave.executor": "Run",
+    "JUnit.TeamServiceTest.testUpdate.executor": "Run",
+    "Maven.Competitions_Cyclistes [clean,install].executor": "Run",
+    "Maven.Competitions_Cyclistes [clean,package].executor": "Run",
+    "Maven.Competitions_Cyclistes [clean].executor": "Run",
+    "Maven.Competitions_Cyclistes [compile].executor": "Run",
+    "Maven.Competitions_Cyclistes [package].executor": "Run",
+    "Maven.FranceTour [clean,install].executor": "Run",
+    "Maven.FranceTour [clean,package].executor": "Run",
+    "Maven.FranceTour [clean].executor": "Run",
+    "Maven.FranceTour [dependency:resolve].executor": "Run",
+    "Maven.FranceTour [dependency:tree].executor": "Run",
+    "Maven.FranceTour [insta].executor": "Run",
+    "Maven.FranceTour [install].executor": "Run",
+    "Maven.FranceTour [test...].executor": "Run",
+    "Maven.FranceTour [test].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Smart Tomcat.Tomcat: FranceTour.executor": "Run",
+    "Smart Tomcat.Unnamed.executor": "Run",
+    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/asmaa/IdeaProjects/FranceTour/src/main/java/com/hariti/asmaa/FranceTour/services",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/asmaa/IdeaProjects/FranceTour/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main" />
+      <recent name="$PROJECT_DIR$/src/main/ressources" />
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/META-INF" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/hariti/asmaa/FranceTour" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -105,70 +144,66 @@
       <command value="mvn clean" />
       <command value="mvn test" />
       <command value="mvn clean install" />
-      <command value="mvn clean install " />
       <command value="mvn clean package " />
+      <command value="mvn clean install " />
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="StageServiceTest.testGetAllStages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
-      <option name="METHOD_NAME" value="testGetAllStages" />
-      <option name="TEST_OBJECT" value="method" />
+  <component name="RunManager" selected="Smart Tomcat.Unnamed">
+    <configuration name="Tomcat: FranceTour" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="catalinaBase" value="" />
+      <option name="contextPath" value="/FranceTour" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="extraClassPath" value="" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/10.1.31 (2)" />
+          <option name="path" value="$USER_HOME$/Downloads/apache-tomcat-10.1.31" />
+          <option name="version" value="10.1.31.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StageServiceTest.testGetStageById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" nameIsGenerated="true">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="catalinaBase" value="$USER_HOME$/.SmartTomcat/FranceTour/FranceTour" />
+      <option name="contextPath" value="/FranceTour" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="extraClassPath" value="" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/10.1.31" />
+          <option name="path" value="$USER_HOME$/Downloads/apache-tomcat-10.1.31" />
+          <option name="version" value="10.1.31.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
       <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
-      <option name="METHOD_NAME" value="testGetStageById" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StageServiceTest.testGetStageByIdNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
-      <option name="METHOD_NAME" value="testGetStageByIdNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StageServiceTest.testSaveStage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
-      <option name="METHOD_NAME" value="testSaveStage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StageServiceTest.testUpdateStage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FranceTour" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StageServiceTest" />
-      <option name="METHOD_NAME" value="testUpdateStage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.StageServiceTest.testGetAllStages" />
-        <item itemvalue="JUnit.StageServiceTest.testSaveStage" />
-        <item itemvalue="JUnit.StageServiceTest.testGetStageById" />
-        <item itemvalue="JUnit.StageServiceTest.testGetStageByIdNotFound" />
-        <item itemvalue="JUnit.StageServiceTest.testUpdateStage" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Smart Tomcat.Tomcat: FranceTour" />
+      <item itemvalue="Smart Tomcat.Unnamed" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -189,6 +224,7 @@
       <workItem from="1728910741317" duration="34661000" />
       <workItem from="1729073852986" duration="21505000" />
       <workItem from="1729154992046" duration="11779000" />
+      <workItem from="1729543151604" duration="12532000" />
     </task>
     <servers />
   </component>
@@ -210,7 +246,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/CompetitionServiceTest.java</url>
           <line>133</line>
-          <properties class="CompetitionServiceTest" method="testUpdateCompetitionSuccess">
+          <properties class="CompetitionServiceTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
