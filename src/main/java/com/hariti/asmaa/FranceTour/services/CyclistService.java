@@ -1,8 +1,11 @@
 package com.hariti.asmaa.FranceTour.services;
 
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
+import com.hariti.asmaa.FranceTour.entities.Team;
 import com.hariti.asmaa.FranceTour.repositories.CyclistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,9 +24,8 @@ public class CyclistService {
         return cyclistRepository.findById(cyclistId);
 
     }
-
-    public List<Cyclist> findAllCyclists() {
-        return cyclistRepository.findAll();
+    public Page<Cyclist> findAllCyclists(Pageable pageable) {
+       return  cyclistRepository.findAll(pageable);
     }
 
     public Cyclist save(Cyclist cyclist) {
@@ -34,7 +36,7 @@ public class CyclistService {
         return cyclistRepository.save(cyclist);
     }
 
-    public void deleteCyclist(Cyclist cyclist) {
+    public void deleteCyclist(Long cyclist) {
         cyclistRepository.delete(cyclist);
     }
     public List<Cyclist> getCyclistsInCompetition(Long competitionId) {
@@ -42,6 +44,9 @@ public class CyclistService {
             throw new IllegalArgumentException("Competition ID cannot be null");
         }
         return cyclistRepository.findByGeneralResults_CompetitionId(competitionId);
+    }
+    public Cyclist findCyclistByName(String name) {
+        return cyclistRepository.findCyclistByName(name);
     }
 
 }

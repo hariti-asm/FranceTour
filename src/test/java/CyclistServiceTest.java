@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -57,14 +61,20 @@ public class CyclistServiceTest {
 
     @Test
     void testFindAllCyclists() {
-        List<Cyclist> cyclists = Arrays.asList(cyclist, new Cyclist());
-        when(cyclistRepository.findAll()).thenReturn(cyclists);
+        List<Cyclist> cyclists = Arrays.asList(new Cyclist(), new Cyclist());
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<Cyclist> pagedCyclists = new PageImpl<>(cyclists);
 
-        List<Cyclist> foundCyclists = cyclistService.findAllCyclists();
+        when(cyclistRepository.findAll(pageable)).thenReturn(pagedCyclists);
 
+        // Act
+        Page<Cyclist> foundCyclists = cyclistService.findAllCyclists(pageable);
+
+        // Assert
         assertNotNull(foundCyclists);
-        assertEquals(2, foundCyclists.size());
-        verify(cyclistRepository, times(1)).findAll();
+        assertEquals(2, foundCyclists.getTotalElements());
+        assertEquals(1, foundCyclists.getTotalPages());
+        verify(cyclistRepository, times(1)).findAll(pageable);
     }
 
     @Test
@@ -93,7 +103,7 @@ public class CyclistServiceTest {
     void testDeleteCyclist() {
         doNothing().when(cyclistRepository).delete(cyclist);
 
-        cyclistService.deleteCyclist(cyclist);
+        cyclistService.deleteCyclist(cyclist.getId());
 
         verify(cyclistRepository, times(1)).delete(cyclist);
     }
