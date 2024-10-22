@@ -3,6 +3,8 @@ package com.hariti.asmaa.FranceTour.repositories;
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -49,4 +51,6 @@ public interface GeneralResultRepository extends JpaRepository<GeneralResult, Lo
     @Query("SELECT DISTINCT gr.cyclist FROM GeneralResult gr WHERE gr.competition.id = :competitionId")
     List<Cyclist> findCyclistsByCompetitionId(@Param("competitionId") Long competitionId);
     List<GeneralResult> findByCyclistIdOrderByCompetitionStartDateDesc(Long cyclistId);
+    Page<GeneralResult> findAll(Pageable pageable);
+
 }
