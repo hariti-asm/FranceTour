@@ -2,13 +2,11 @@ package com.hariti.asmaa.FranceTour.services;
 
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.repositories.CompetitionRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,7 +31,6 @@ public class CompetitionService {
     }
 
 
-
     public Page<Competition> findAllCompetitions(Pageable pageable) {
         return competitionRepository.findAll(pageable);
     }
@@ -46,8 +43,8 @@ public class CompetitionService {
         if (competition.getStartDate().isAfter(competition.getEndDate())) {
             throw new IllegalArgumentException("Competition start date can't be after end date");
         }
-     Competition competition2 = competitionRepository.findCompetitionByName(competition.getName());
-        if (competition2!=null) {
+        Competition competition2 = competitionRepository.findCompetitionByName(competition.getName());
+        if (competition2 != null) {
             throw new IllegalArgumentException("Competition already exists");
         }
 

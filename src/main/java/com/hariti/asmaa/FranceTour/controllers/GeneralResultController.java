@@ -1,9 +1,9 @@
 package com.hariti.asmaa.FranceTour.controllers;
 
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
-import com.hariti.asmaa.FranceTour.services.GeneralResultService;
 import com.hariti.asmaa.FranceTour.response.ApiResponse;
 import com.hariti.asmaa.FranceTour.response.ResponseBuilder;
+import com.hariti.asmaa.FranceTour.services.GeneralResultService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

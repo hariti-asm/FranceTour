@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 @Getter
 @Setter
 @Embeddable
@@ -20,7 +21,6 @@ public class GeneralResultId implements Serializable {
         this.cyclistId = cyclistId;
         this.competitionId = competitionId;
     }
-
 
 
     @Override

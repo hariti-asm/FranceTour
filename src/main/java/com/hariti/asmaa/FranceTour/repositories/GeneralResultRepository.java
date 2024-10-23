@@ -17,8 +17,11 @@ import java.util.Optional;
 @Repository
 public interface GeneralResultRepository extends JpaRepository<GeneralResult, Long> {
     Optional<GeneralResult> findByCyclistIdAndCompetitionId(Long cyclistId, Long competitionId);
+
     boolean existsByCyclistAndCompetition(Cyclist cyclist, Competition competition);
+
     void deleteByCyclistIdAndCompetitionId(Long cyclistId, Long competitionId);
+
     List<GeneralResult> findByCompetitionId(Long id);
 
     @Query("SELECT gr FROM GeneralResult gr JOIN FETCH gr.cyclist WHERE gr.competition.id = :competitionId")
@@ -48,9 +51,10 @@ public interface GeneralResultRepository extends JpaRepository<GeneralResult, Lo
     @Query("SELECT gr FROM GeneralResult gr WHERE gr.competition.id = :competitionId ORDER BY gr.totalTime ASC")
     List<GeneralResult> findByCompetitionIdOrderByTotalTimeAsc(@Param("competitionId") Long competitionId);
 
-    @Query("SELECT DISTINCT gr.cyclist FROM GeneralResult gr WHERE gr.competition.id = :competitionId")
     List<Cyclist> findCyclistsByCompetitionId(@Param("competitionId") Long competitionId);
+
     List<GeneralResult> findByCyclistIdOrderByCompetitionStartDateDesc(Long cyclistId);
+
     Page<GeneralResult> findAll(Pageable pageable);
 
 }

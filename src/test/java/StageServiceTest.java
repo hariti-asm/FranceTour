@@ -1,4 +1,3 @@
-
 import com.hariti.asmaa.FranceTour.entities.Stage;
 import com.hariti.asmaa.FranceTour.repositories.StageRepository;
 import com.hariti.asmaa.FranceTour.services.StageService;
@@ -66,6 +65,7 @@ class StageServiceTest {
         assertEquals(2, foundStages.getContent().size());  // Check the size of the content
         verify(stageRepository, times(1)).findAll(pageable);
     }
+
     @Test
     void testGetStageById() {
         when(stageRepository.findById(1L)).thenReturn(Optional.of(stage));

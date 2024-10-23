@@ -1,15 +1,15 @@
 package com.hariti.asmaa.FranceTour.controllers;
 
 import com.hariti.asmaa.FranceTour.entities.Competition;
-import com.hariti.asmaa.FranceTour.services.CompetitionService;
 import com.hariti.asmaa.FranceTour.response.ApiResponse;
 import com.hariti.asmaa.FranceTour.response.ResponseBuilder;
+import com.hariti.asmaa.FranceTour.services.CompetitionService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
@@ -27,6 +27,7 @@ public class CompetitionController {
         Page<Competition> competitions = competitionService.findAllCompetitions(pageable);
         return ResponseBuilder.ok(Optional.of(competitions));
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<Competition>> getCompetitionById(@PathVariable Long id) {
         return competitionService.findCompetitionById(id)
@@ -61,6 +62,7 @@ public class CompetitionController {
             return ResponseBuilder.notFound("Competition not found with id: " + id);
         }
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<String>> deleteCompetition(@PathVariable Long id) {
         if (competitionService.findCompetitionById(id).isPresent()) {

@@ -53,10 +53,12 @@ public class JPAConfig {
         txManager.setEntityManagerFactory(entityManagerFactory);
         return txManager;
     }
+
     @Bean
     public TransactionTemplate transactionTemplate(PlatformTransactionManager transactionManager) {
         return new TransactionTemplate(transactionManager);
     }
+
     @Bean
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();

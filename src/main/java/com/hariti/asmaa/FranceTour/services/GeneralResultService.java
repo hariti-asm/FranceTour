@@ -3,7 +3,6 @@ package com.hariti.asmaa.FranceTour.services;
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
-import com.hariti.asmaa.FranceTour.entities.Embeddebales.StageResult;
 import com.hariti.asmaa.FranceTour.repositories.CompetitionRepository;
 import com.hariti.asmaa.FranceTour.repositories.CyclistRepository;
 import com.hariti.asmaa.FranceTour.repositories.GeneralResultRepository;
@@ -81,6 +80,7 @@ public class GeneralResultService {
     public Long calculateTotalTimeInSeconds(Long cyclistId, Long competitionId) {
         return generalResultRepository.calculateTotalSecondsForCyclist(cyclistId, competitionId);
     }
+
     public Page<GeneralResult> findAllGeneralResults(Pageable pageable) {
         return generalResultRepository.findAll(pageable);
     }

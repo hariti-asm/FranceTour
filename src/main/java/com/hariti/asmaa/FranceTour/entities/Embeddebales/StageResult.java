@@ -36,7 +36,8 @@ public class StageResult {
     private String time;
 
     // Default constructor
-    public StageResult() {}
+    public StageResult() {
+    }
 
     // Constructor with all fields
     public StageResult(Long id, Cyclist cyclist, Stage stage, Integer position, String time) {

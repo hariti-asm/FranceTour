@@ -19,6 +19,7 @@ public class ResponseBuilder {
                 .status(HttpStatus.CREATED)
                 .body(new ApiResponse<>(data));
     }
+
     public static <T> ResponseEntity<ApiResponse<String>> badRequest(String message) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)

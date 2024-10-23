@@ -74,9 +74,9 @@ public class CompetitionServiceTest {
     public void testFindCompetitionByName() {
         when(competitionRepository.findCompetitionByName(competition.getName().toLowerCase())).thenReturn(competition);
 
-      Competition competitionOptional = competitionService.findCompetitionByName(competition.getName());
+        Competition competitionOptional = competitionService.findCompetitionByName(competition.getName());
 
-        assertTrue(competitionOptional !=null );
+        assertTrue(competitionOptional != null);
         assertEquals(competition, competitionOptional);
         verify(competitionRepository, times(1)).findCompetitionByName(competition.getName().toLowerCase());
     }
@@ -89,7 +89,7 @@ public class CompetitionServiceTest {
 
         Competition competitionOptional = competitionService.findCompetitionByName(competition.getName());
 
-        assertTrue(competitionOptional !=null);
+        assertTrue(competitionOptional != null);
         assertEquals(competition, competitionOptional);
         verify(competitionRepository, times(1)).findCompetitionByName(lowerCaseName);
     }

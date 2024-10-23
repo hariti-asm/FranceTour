@@ -1,11 +1,11 @@
 package com.hariti.asmaa.FranceTour.entities;
 
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
@@ -37,7 +37,7 @@ public class Competition {
     @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Stage> stages = new HashSet<>();
 
-@OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<GeneralResult> generalResults = new HashSet<>();
 
     public Competition(Long id, String name, LocalDate startDate, LocalDate endDate, String location, Set<Stage> stages, Set<GeneralResult> generalResults) {

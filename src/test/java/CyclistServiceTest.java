@@ -1,4 +1,3 @@
-
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
 import com.hariti.asmaa.FranceTour.repositories.CyclistRepository;
 import com.hariti.asmaa.FranceTour.services.CyclistService;

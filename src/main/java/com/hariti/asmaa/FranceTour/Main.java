@@ -1,10 +1,8 @@
 package com.hariti.asmaa.FranceTour;
 
 import com.hariti.asmaa.FranceTour.config.JPAConfig;
-import com.hariti.asmaa.FranceTour.entities.*;
-import com.hariti.asmaa.FranceTour.repositories.*;
+import com.hariti.asmaa.FranceTour.repositories.TeamRepository;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.transaction.support.TransactionTemplate;
 
 public class Main {
     public static void main(String[] args) {

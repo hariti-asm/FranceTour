@@ -43,12 +43,15 @@ public class StageResultService {
 
         return stageResultRepository.save(stageResult);
     }
+
     public Page<StageResult> findAllStageResults(Pageable pageable) {
         return stageResultRepository.findAll(pageable);
     }
+
     public Optional<StageResult> findByStageAndCyclist(Long stageId, Long cyclistId) {
         return stageResultRepository.findByStageIdAndCyclistId(stageId, cyclistId);
     }
+
     @Transactional
     public void deleteStageResult(Long cyclistId, Long stageId) {
         StageResult stageResult = stageResultRepository.findByStageIdAndCyclistId(stageId, cyclistId)

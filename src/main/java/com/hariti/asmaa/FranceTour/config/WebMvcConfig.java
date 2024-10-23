@@ -29,6 +29,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         resolver.setSuffix(".jsp");
         return resolver;
     }
+
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer
@@ -37,6 +38,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .ignoreAcceptHeader(false)
                 .mediaType("json", MediaType.APPLICATION_JSON);
     }
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();

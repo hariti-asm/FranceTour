@@ -1,10 +1,10 @@
 package com.hariti.asmaa.FranceTour.services;
 
-import com.hariti.asmaa.FranceTour.entities.Cyclist;
 import com.hariti.asmaa.FranceTour.entities.Competition;
+import com.hariti.asmaa.FranceTour.entities.Cyclist;
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
-import com.hariti.asmaa.FranceTour.repositories.CyclistRepository;
 import com.hariti.asmaa.FranceTour.repositories.CompetitionRepository;
+import com.hariti.asmaa.FranceTour.repositories.CyclistRepository;
 import com.hariti.asmaa.FranceTour.repositories.GeneralResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
