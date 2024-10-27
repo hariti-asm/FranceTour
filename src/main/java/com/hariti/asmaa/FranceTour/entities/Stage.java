@@ -1,18 +1,17 @@
 package com.hariti.asmaa.FranceTour.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.StageResult;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Setter
-@Getter
 @Data
 @Entity
 @Table(name = "stages")
@@ -39,12 +38,23 @@ public class Stage {
     @Column(nullable = false)
     private LocalDate date;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "competition_id", nullable = false)
+    @JsonIgnoreProperties({"stages", "hibernateLazyInitializer", "handler"})
     private Competition competition;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "stage", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("stage")
     private Set<StageResult> results = new HashSet<>();
+
+    // Constructors
+    public Stage() {
+        this.results = new HashSet<>();
+    }
 
     public Stage(Long id, String name, Integer stageNumber, String startLocation,
                  String endLocation, double distance, LocalDate date,
@@ -57,13 +67,10 @@ public class Stage {
         this.distance = distance;
         this.date = date;
         this.competition = competition;
-        this.results = results;
+        this.results = results != null ? results : new HashSet<>();
     }
 
-    public Stage() {
-    }
-
-    // Helper methods to maintain bidirectional relationship
+    // Helper methods for bidirectional relationship
     public void addResult(StageResult result) {
         results.add(result);
         result.setStage(this);
@@ -103,6 +110,7 @@ public class Stage {
                 ", endLocation='" + endLocation + '\'' +
                 ", distance=" + distance +
                 ", date=" + date +
+                ", competitionId=" + (competition != null ? competition.getId() : null) +
                 '}';
     }
 }

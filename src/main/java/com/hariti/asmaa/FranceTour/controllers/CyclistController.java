@@ -1,7 +1,9 @@
 package com.hariti.asmaa.FranceTour.controllers;
 
+import com.hariti.asmaa.FranceTour.dtos.cyclist.CyclistRequestDTO;
+import com.hariti.asmaa.FranceTour.dtos.cyclist.CyclistResponseDTO;
+import com.hariti.asmaa.FranceTour.dtos.mappers.CyclistMapper;
 import com.hariti.asmaa.FranceTour.entities.Cyclist;
-import com.hariti.asmaa.FranceTour.entities.Stage;
 import com.hariti.asmaa.FranceTour.response.ApiResponse;
 import com.hariti.asmaa.FranceTour.response.ResponseBuilder;
 import com.hariti.asmaa.FranceTour.services.CyclistService;
@@ -19,48 +21,50 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CyclistController {
     private final CyclistService cyclistService;
+    private final CyclistMapper cyclistMapper;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<Optional<Page<Cyclist>>>> getAllCyclists(
+    public ResponseEntity<ApiResponse<Optional<Page<CyclistResponseDTO>>>> getAllCyclists(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Cyclist> cyclists = cyclistService.findAllCyclists(pageable);
-        return ResponseBuilder.ok(Optional.of(cyclists));
+        Page<CyclistResponseDTO> cyclistDTOs = cyclists.map(cyclistMapper::toResponseDTO);
+        return ResponseBuilder.ok(Optional.of(cyclistDTOs));
     }
-  
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Cyclist>> getCyclistById(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<CyclistResponseDTO>> getCyclistById(@PathVariable Long id) {
         return cyclistService.findCyclistById(id)
-                .map(ResponseBuilder::ok)
+                .map(cyclist -> ResponseBuilder.ok(cyclistMapper.toResponseDTO(cyclist)))
                 .orElse(ResponseBuilder.notFound("Cyclist not found with id: " + id));
     }
 
     @GetMapping("/name/{name}")
-    public ResponseEntity<ApiResponse<Cyclist>> getCyclistByName(@PathVariable String name) {
+    public ResponseEntity<ApiResponse<CyclistResponseDTO>> getCyclistByName(@PathVariable String name) {
         Cyclist cyclist = cyclistService.findCyclistByName(name);
         return cyclist != null
-                ? ResponseBuilder.ok(cyclist)
+                ? ResponseBuilder.ok(cyclistMapper.toResponseDTO(cyclist))
                 : ResponseBuilder.notFound("Cyclist not found with name: " + name);
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<Cyclist>> createCyclist(@RequestBody Cyclist cyclist) {
+    public ResponseEntity<ApiResponse<CyclistResponseDTO>> createCyclist(@RequestBody CyclistRequestDTO cyclistDTO) {
+        Cyclist cyclist = cyclistMapper.toEntity(cyclistDTO);
         Cyclist savedCyclist = cyclistService.save(cyclist);
-        return ResponseBuilder.created(savedCyclist);
+        return ResponseBuilder.created(cyclistMapper.toResponseDTO(savedCyclist));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<Cyclist>> updateCyclist(
+    public ResponseEntity<ApiResponse<CyclistResponseDTO>> updateCyclist(
             @PathVariable Long id,
-            @RequestBody Cyclist cyclist
+            @RequestBody CyclistRequestDTO cyclistDTO
     ) {
         return cyclistService.findCyclistById(id)
                 .map(existingCyclist -> {
-                    cyclist.setId(id);
-                    Cyclist updatedCyclist = cyclistService.updateCyclist(cyclist);
-                    return ResponseBuilder.ok(updatedCyclist);
+                    cyclistMapper.updateEntityFromDTO(existingCyclist, cyclistDTO);
+                    Cyclist updatedCyclist = cyclistService.updateCyclist(existingCyclist);
+                    return ResponseBuilder.ok(cyclistMapper.toResponseDTO(updatedCyclist));
                 })
                 .orElse(ResponseBuilder.notFound("Cyclist not found with id: " + id));
     }

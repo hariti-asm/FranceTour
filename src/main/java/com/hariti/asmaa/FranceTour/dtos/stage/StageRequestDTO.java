@@ -3,6 +3,7 @@ package com.hariti.asmaa.FranceTour.dtos.stage;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ public class StageRequestDTO {
     @NotBlank(message = "End location is required")
     private String endLocation;
 
-    @Positive(message = "Distance must be positive")
+    @PositiveOrZero(message = "Distance must be zero or positive")
     private double distance;
 
     @NotNull(message = "Date is required")

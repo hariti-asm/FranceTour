@@ -1,5 +1,6 @@
 package com.hariti.asmaa.FranceTour.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hariti.asmaa.FranceTour.entities.Embeddebales.GeneralResult;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -34,6 +35,8 @@ public class Competition {
     private String location;
 
     @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("competition")
+
     private Set<Stage> stages = new HashSet<>();
 
     @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
