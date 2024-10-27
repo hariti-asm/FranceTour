@@ -1,5 +1,8 @@
 package com.hariti.asmaa.FranceTour.services;
 
+import com.hariti.asmaa.FranceTour.dtos.competition.CompetitionRequestDTO;
+import com.hariti.asmaa.FranceTour.dtos.competition.CompetitionResponseDTO;
+import com.hariti.asmaa.FranceTour.dtos.mappers.CompetitionMapper;
 import com.hariti.asmaa.FranceTour.entities.Competition;
 import com.hariti.asmaa.FranceTour.repositories.CompetitionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,54 +16,57 @@ import java.util.Optional;
 public class CompetitionService {
 
     private final CompetitionRepository competitionRepository;
+    private final CompetitionMapper competitionMapper;
 
     @Autowired
-    public CompetitionService(CompetitionRepository competitionRepository) {
+    public CompetitionService(CompetitionRepository competitionRepository, CompetitionMapper competitionMapper) {
         this.competitionRepository = competitionRepository;
+        this.competitionMapper = competitionMapper;
     }
 
     public Competition findCompetitionByName(String name) {
-
         return competitionRepository.findCompetitionByName(name.toLowerCase());
-
     }
 
     public Optional<Competition> findCompetitionById(long id) {
         return competitionRepository.findById(id);
-
     }
-
 
     public Page<Competition> findAllCompetitions(Pageable pageable) {
         return competitionRepository.findAll(pageable);
     }
 
-
-    public Competition saveCompetition(Competition competition) {
-        if (competition == null) {
+    public Competition saveCompetition(CompetitionRequestDTO competitionDTO) {
+        if (competitionDTO == null) {
             throw new IllegalArgumentException("Competition can't be created");
         }
-        if (competition.getStartDate().isAfter(competition.getEndDate())) {
+        if (competitionDTO.getStartDate().isAfter(competitionDTO.getEndDate())) {
             throw new IllegalArgumentException("Competition start date can't be after end date");
         }
-        Competition competition2 = competitionRepository.findCompetitionByName(competition.getName());
-        if (competition2 != null) {
+
+        Competition existingCompetition = competitionRepository.findCompetitionByName(competitionDTO.getName());
+        if (existingCompetition != null) {
             throw new IllegalArgumentException("Competition already exists");
         }
 
+        Competition competition = competitionMapper.toEntity(competitionDTO);
         return competitionRepository.save(competition);
     }
 
-    public Competition updateCompetition(Competition competition) {
-        return competitionRepository.findById(competition.getId())
+    public Competition updateCompetition(CompetitionRequestDTO competitionDTO) {
+        if (competitionDTO.getStartDate().isAfter(competitionDTO.getEndDate())) {
+            throw new IllegalArgumentException("Competition start date can't be after end date");
+        }
+
+        return competitionRepository.findById(competitionDTO .getId())
                 .map(existingCompetition -> {
-                    existingCompetition.setName(competition.getName());
-                    existingCompetition.setStartDate(competition.getStartDate());
-                    existingCompetition.setEndDate(competition.getEndDate());
-                    existingCompetition.setLocation(competition.getLocation());
+                    existingCompetition.setName(competitionDTO.getName());
+                    existingCompetition.setStartDate(competitionDTO.getStartDate());
+                    existingCompetition.setEndDate(competitionDTO.getEndDate());
+                    existingCompetition.setLocation(competitionDTO.getLocation());
                     return competitionRepository.save(existingCompetition);
                 })
-                .orElseThrow(() -> new RuntimeException("Competition not found with id: " + competition.getId()));
+                .orElseThrow(() -> new RuntimeException("Competition not found with id: " + competitionDTO.getId()));
     }
 
     public void deleteCompetition(Long competitionId) {

@@ -19,7 +19,6 @@ import java.util.Set;
 public class Competition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "name", nullable = false)
@@ -40,8 +39,7 @@ public class Competition {
     @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<GeneralResult> generalResults = new HashSet<>();
 
-    public Competition(Long id, String name, LocalDate startDate, LocalDate endDate, String location, Set<Stage> stages, Set<GeneralResult> generalResults) {
-        this.id = id;
+    public Competition(String name, LocalDate startDate, LocalDate endDate, String location, Set<Stage> stages, Set<GeneralResult> generalResults) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -51,10 +49,7 @@ public class Competition {
     }
 
     public Competition() {
-
     }
-
-    // Constructors, other methods...
 
     public void addGeneralResult(GeneralResult result) {
         generalResults.add(result);
@@ -71,7 +66,10 @@ public class Competition {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Competition that = (Competition) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate) && Objects.equals(location, that.location) && Objects.equals(stages, that.stages) && Objects.equals(generalResults, that.generalResults);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) &&
+                Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate) &&
+                Objects.equals(location, that.location) && Objects.equals(stages, that.stages) &&
+                Objects.equals(generalResults, that.generalResults);
     }
 
     @Override
